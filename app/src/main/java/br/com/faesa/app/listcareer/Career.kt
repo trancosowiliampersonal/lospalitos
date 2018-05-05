@@ -1,4 +1,4 @@
-package br.com.faesa.app.Career
+package br.com.faesa.app.listcareer
 
 /**
  * Created by wiliam on 5/5/18.

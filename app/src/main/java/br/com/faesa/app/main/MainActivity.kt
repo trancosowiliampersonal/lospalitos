@@ -3,9 +3,9 @@ package br.com.faesa.app.main
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.faesa.app.R
-import br.com.faesa.app.Career.CareerFragment
-import br.com.faesa.app.Progress.ProgressFragment
-import br.com.faesa.app.Project.ProjectFragment
+import br.com.faesa.app.listcareer.CareerFragment
+import br.com.faesa.app.listprogress.ProgressFragment
+import br.com.faesa.app.listproject.ProjectFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainContract.View {

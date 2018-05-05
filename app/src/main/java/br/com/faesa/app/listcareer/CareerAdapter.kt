@@ -1,4 +1,4 @@
-package br.com.faesa.app.Career
+package br.com.faesa.app.listcareer
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -12,8 +12,14 @@ import kotlinx.android.synthetic.main.item_career.view.*
  */
 class CareerAdapter(val careers : List<Career>) : RecyclerView.Adapter<CareerAdapter.CareerHolder>() {
 
+    var onClickListener: ((Career) -> Unit)? = null
+
     override fun onBindViewHolder(holder: CareerHolder?, position: Int) {
         holder?.txtName?.text = careers[position].name
+
+        holder?.itemView?.setOnClickListener {
+            onClickListener?.invoke(careers[position])
+        }
     }
 
     override fun getItemCount(): Int {

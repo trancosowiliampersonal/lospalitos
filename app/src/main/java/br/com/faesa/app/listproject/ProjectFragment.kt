@@ -1,4 +1,4 @@
-package br.com.faesa.app.Progress
+package br.com.faesa.app.listproject
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,18 +10,18 @@ import br.com.faesa.app.R
 /**
  * Created by wiliam on 5/5/18.
  */
-class ProgressFragment : BaseFragment() {
+class ProjectFragment : BaseFragment() {
 
-    override val title: String = "Progresso"
+    override val title: String = "Projetos"
 
     companion object {
-        fun newInstance(): ProgressFragment {
-            return ProgressFragment()
+        fun newInstance(): ProjectFragment {
+            return ProjectFragment()
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_progress, container, false)
+        return inflater?.inflate(R.layout.fragment_project, container, false)
     }
 }
