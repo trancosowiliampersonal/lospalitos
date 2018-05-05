@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryTrans">#CC3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="app_color">@color/colorPrimary</color>
+    <color name="app_color_trans">@color/colorPrimaryTrans</color>
+
+    <color name="ripple_btn_ghost">#CCC</color>
+    <color name="ripple_btn_normal">@color/colorPrimaryDark</color>
+    <color name="grey_medium">#AAAAAA</color>
 </resources>

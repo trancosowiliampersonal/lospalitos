@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/ripple_btn_normal">
+    <item>
+        <selector>
+            <item android:state_enabled="false">
+                <shape android:shape="rectangle">
+                    <padding
+                        android:left="10dp"
+                        android:right="10dp" />
+                    <corners android:radius="100dip" />
+                    <solid android:color="@color/grey_medium" />
+                </shape>
+            </item>
+            <item android:state_pressed="true">
+                <shape android:shape="rectangle">
+                    <padding
+                        android:left="10dp"
+                        android:right="10dp" />
+                    <corners android:radius="100dip" />
+                    <solid android:color="@color/app_color_trans" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <padding
+                        android:left="10dp"
+                        android:right="10dp" />
+                    <corners android:radius="100dip" />
+                    <solid android:color="@color/app_color" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+</ripple>
