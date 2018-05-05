@@ -3,11 +3,10 @@ package br.com.faesa.app.main
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.faesa.app.R
-import br.com.faesa.app.main.fragment.CarrerFragment
-import br.com.faesa.app.main.fragment.ProgressFragment
-import br.com.faesa.app.main.fragment.ProjectFragment
+import br.com.faesa.app.Carrer.CarrerFragment
+import br.com.faesa.app.Progress.ProgressFragment
+import br.com.faesa.app.Project.ProjectFragment
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
@@ -34,8 +33,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     private fun createAdapter(): MainViewPageAdapter {
         val adapter = MainViewPageAdapter(supportFragmentManager)
-        adapter.add(ProjectFragment.newInstance())
         adapter.add(CarrerFragment.newInstance())
+        adapter.add(ProjectFragment.newInstance())
         adapter.add(ProgressFragment.newInstance())
         return adapter
     }

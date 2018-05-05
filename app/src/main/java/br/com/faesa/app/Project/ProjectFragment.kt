@@ -1,7 +1,6 @@
-package br.com.faesa.app.main.fragment
+package br.com.faesa.app.Project
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,18 +10,18 @@ import br.com.faesa.app.R
 /**
  * Created by wiliam on 5/5/18.
  */
-class CarrerFragment : BaseFragment() {
+class ProjectFragment : BaseFragment() {
 
-    override val title: String = "Carreiras"
+    override val title: String = "Projetos"
 
     companion object {
-        fun newInstance(): CarrerFragment {
-            return CarrerFragment()
+        fun newInstance(): ProjectFragment {
+            return ProjectFragment()
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_carrer, container, false)
+        return inflater?.inflate(R.layout.fragment_project, container, false)
     }
 }
