@@ -1,5 +1,6 @@
 package br.com.faesa.app.listcareer
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
+import br.com.faesa.app.career.CareerActivity
 
 /**
  * Created by wiliam on 5/5/18.
@@ -33,7 +35,7 @@ class CareerFragment : BaseFragment() {
         carRecCareers?.adapter = adapter
 
         adapter.onClickListener = { (name) ->
-            Toast.makeText(context, name, Toast.LENGTH_SHORT).show()
+            startActivity(Intent(context, CareerActivity::class.java))
         }
 
         return view
