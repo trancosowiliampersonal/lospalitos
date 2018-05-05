@@ -7,10 +7,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.career.CareerActivity
+import br.com.faesa.app.domain.Career
 
 /**
  * Created by wiliam on 5/5/18.
