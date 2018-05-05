@@ -11,8 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:orientation="vertical">
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/carLblDescription"
@@ -20,9 +19,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Aqui você pode editar as informações desta carreira"
-            android:layout_marginTop="22dp"
-            android:paddingLeft="22dp"
-            android:paddingRight="22dp"
+            android:layout_marginTop="@dimen/margin_app"
+            android:paddingLeft="@dimen/margin_app"
+            android:paddingRight="@dimen/margin_app"
             android:fontFamily="sans-serif"
             android:maxLines="2"
             android:textColor="#4a4a4a"
@@ -48,7 +47,7 @@
             android:id="@+id/carTilDescription"
             style="@style/RegisterTextInputLayout"
             android:hint="Description"
-            android:layout_marginTop="18dp" >
+            android:layout_marginTop="@dimen/space_component" >
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/carTieDescription"
@@ -56,5 +55,20 @@
                 style="@style/RegisterTextInputEditText"/>
         </android.support.design.widget.TextInputLayout>
 
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Conhecimentos"
+            android:layout_marginTop="@dimen/margin_app"
+            android:paddingLeft="@dimen/margin_app"
+            android:paddingRight="@dimen/margin_app"
+            android:fontFamily="sans-serif"
+            android:maxLines="2"
+            android:textColor="#4a4a4a"
+            android:textSize="16sp"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeTextType="uniform"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 </ScrollView>

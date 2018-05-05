@@ -26,10 +26,9 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">6dp</item>
-        <item name="android:layout_marginLeft">22dp</item>
-        <item name="android:layout_marginRight">22dp</item>
+        <item name="android:layout_marginLeft">@dimen/margin_app</item>
+        <item name="android:layout_marginRight">@dimen/margin_app</item>
     </style>
-
 
     <style name="RegisterTextInputEditText">
         <item name="android:layout_width">match_parent</item>
