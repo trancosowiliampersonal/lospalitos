@@ -15,7 +15,6 @@ class CareerActivity : AppCompatActivity() {
 
         carRecList.layoutManager = LinearLayoutManager(this)
         carRecList.adapter = KnowledgeAdapter(createKnowledge())
-
     }
 
     fun createKnowledge() : List<Knowledge>{
