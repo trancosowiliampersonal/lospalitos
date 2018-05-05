@@ -1,6 +1,5 @@
 package br.com.faesa.app.dao;
 
-import android.content.ContentProviderOperation;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

@@ -30,8 +30,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-
-    compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    compile 'com.android.support:design:26.1.0'
 }
 repositories {
     mavenCentral()
