@@ -9,8 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
-import br.com.faesa.app.dao.CompanyDAO
+import br.com.faesa.app.domain.Company
 import br.com.faesa.app.listcareer.CareerActivity
+import br.com.faesa.app.repository.REPOSITORY
 
 /**
  * Created by wiliam on 5/5/18.
@@ -42,7 +43,7 @@ class CompanyFragment : BaseFragment() {
 
         return view
     }
-    private fun  getItens(): List<ItemListCompany> {
-        return ItemListCompany.newInstances(CompanyDAO(context).list)
+    private fun  getItens(): List<Company> {
+        return REPOSITORY.COMPANY.ALL
     }
 }

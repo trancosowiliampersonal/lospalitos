@@ -5,15 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.R
+import br.com.faesa.app.domain.Company
 import kotlinx.android.synthetic.main.banner.view.*
 import kotlinx.android.synthetic.main.item_company.view.*
 
 /**
  * Created by wiliam on 5/5/18.
  */
-class CompanyAdapter(val itens: List<ItemListCompany>) : RecyclerView.Adapter<CompanyAdapter.CompanyHolder>() {
+class CompanyAdapter(val itens: List<Company>) : RecyclerView.Adapter<CompanyAdapter.CompanyHolder>() {
 
-    var onClickListener: ((ItemListCompany) -> Unit)? = null
+    var onClickListener: ((Company) -> Unit)? = null
 
     companion object {
         const val TYPE_BANNER = 0
@@ -51,18 +52,18 @@ class CompanyAdapter(val itens: List<ItemListCompany>) : RecyclerView.Adapter<Co
 
 
     abstract class CompanyHolder(view: View) : RecyclerView.ViewHolder(view) {
-        abstract fun render(item: ItemListCompany?)
+        abstract fun render(item: Company?)
     }
 
     class CompanyDetailHolder(view: View) : CompanyHolder(view) {
-        override fun render(iten: ItemListCompany?) {
+        override fun render(iten: Company?) {
             itemView.itTxtCompanyName.text = iten?.name
             itemView.itTxtCompanyDescription.text = iten?.description
         }
     }
 
     class CompanyBannerHolder(view: View) : CompanyHolder(view) {
-        override fun render(iten: ItemListCompany?) {
+        override fun render(iten: Company?) {
             itemView.banImgBanner.setImageResource(R.drawable.banner_company)
         }
     }

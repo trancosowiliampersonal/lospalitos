@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
+import br.com.faesa.app.domain.Career
 import br.com.faesa.app.registercareer.RegisterCareerActivity
 import br.com.faesa.app.repository.REPOSITORY
 
@@ -41,7 +42,7 @@ class CareerFragment : BaseFragment() {
         return view
     }
 
-    private fun getCareers(): List<ItemListCareer> {
-        return ItemListCareer.newInstances(REPOSITORY.CAREER.ALL)
+    private fun getCareers(): List<Career> {
+        return REPOSITORY.CAREER.ALL
     }
 }

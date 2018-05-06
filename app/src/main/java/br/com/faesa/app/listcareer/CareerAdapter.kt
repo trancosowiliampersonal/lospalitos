@@ -5,15 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.R
+import br.com.faesa.app.domain.Career
 import kotlinx.android.synthetic.main.banner.view.*
 import kotlinx.android.synthetic.main.item_career.view.*
 
 /**
  * Created by wiliam on 5/5/18.
  */
-class CareerAdapter(val careerListCareers: List<ItemListCareer>) : RecyclerView.Adapter<CareerAdapter.CareerHolder>() {
+class CareerAdapter(val careerListCareers: List<Career>) : RecyclerView.Adapter<CareerAdapter.CareerHolder>() {
 
-    var onClickListener: ((ItemListCareer) -> Unit)? = null
+    var onClickListener: ((Career) -> Unit)? = null
 
     companion object {
         const val TYPE_BANNER = 0
@@ -51,18 +52,18 @@ class CareerAdapter(val careerListCareers: List<ItemListCareer>) : RecyclerView.
 
 
     abstract class CareerHolder(view: View) : RecyclerView.ViewHolder(view) {
-        abstract fun render(careerListCareer: ItemListCareer?)
+        abstract fun render(careerListCareer: Career?)
     }
 
     class CareerDetailHolder(view: View) : CareerHolder(view) {
-        override fun render(careerListCareer: ItemListCareer?) {
+        override fun render(careerListCareer: Career?) {
             itemView.itTxtCareerName.text = careerListCareer?.name
             itemView.itTxtCareerDescription.text = careerListCareer?.description
         }
     }
 
     class CareerBannerHolder(view: View) : CareerHolder(view) {
-        override fun render(careerListCareer: ItemListCareer?) {
+        override fun render(careerListCareer: Career?) {
             itemView.banImgBanner.setImageResource(R.drawable.banner_career)
         }
 
