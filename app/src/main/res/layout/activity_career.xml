@@ -1,82 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:overScrollMode="never"
-    android:scrollbars="none"
-    tools:context="br.com.faesa.app.registercareer.RegisterCareerActivity">
+    tools:context="br.com.faesa.app.listcareer.CareerActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/carLblCompany"
+        style="@style/TitleCard"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        app:fontFamily="@font/app_font"
+        android:textSize="22sp"
+        app:autoSizeMaxTextSize="22sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="Empresa" />
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/carLblDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Aqui você pode editar as informações desta carreira"
-            android:layout_marginTop="@dimen/margin_app"
-            android:paddingLeft="@dimen/margin_app"
-            android:paddingRight="@dimen/margin_app"
-            android:fontFamily="sans-serif"
-            android:maxLines="2"
-            android:textColor="#4a4a4a"
-            android:textSize="16sp"
-            app:autoSizeMaxTextSize="16sp"
-            app:autoSizeMinTextSize="10sp"
-            app:autoSizeTextType="uniform"
-            tools:ignore="HardcodedText" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/carTxtDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="2dp"
+        android:textColor="#4a4a4a"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="14sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/app_font"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/carLblCompany"
+        tools:text="Description dasdjsddasjnd dasjndsa dsajndkjsa djasnkjdsa dasjkdsa dasj" />
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/carTilName"
-            style="@style/RegisterTextInputLayout"
-            android:hint="Nome"
-            android:layout_marginTop="18dp" >
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/carLblCareer"
+        style="@style/TitleCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:fontFamily="@font/app_font"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintTop_toBottomOf="@id/carTxtDescription"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Carreiras" />
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/carTieName"
-                android:inputType="text"
-                style="@style/RegisterTextInputEditText"/>
-        </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/carTilDescription"
-            style="@style/RegisterTextInputLayout"
-            android:hint="Description"
-            android:layout_marginTop="@dimen/space_component" >
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/carTieDescription"
-                android:inputType="text"
-                style="@style/RegisterTextInputEditText"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Conhecimentos"
-            android:layout_marginTop="@dimen/margin_app"
-            android:paddingLeft="@dimen/margin_app"
-            android:paddingRight="@dimen/margin_app"
-            android:fontFamily="sans-serif"
-            android:maxLines="2"
-            android:textColor="#4a4a4a"
-            android:textSize="16sp"
-            app:autoSizeMaxTextSize="16sp"
-            app:autoSizeMinTextSize="10sp"
-            app:autoSizeTextType="uniform"
-            tools:ignore="HardcodedText" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/carRecList"
-            android:layout_marginLeft="@dimen/margin_rec_vertical"
-            android:paddingRight="@dimen/margin_rec_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-</ScrollView>
+</android.support.constraint.ConstraintLayout>

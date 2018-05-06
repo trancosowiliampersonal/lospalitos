@@ -4,13 +4,13 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import br.com.faesa.app.R
-import kotlinx.android.synthetic.main.activity_career.*
+import kotlinx.android.synthetic.main.activity_register_career.*
 
 class RegisterCareerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_career)
+        setContentView(R.layout.activity_register_career)
 
         carRecList.layoutManager = LinearLayoutManager(this)
         carRecList.adapter = KnowledgeAdapter(createKnowledge())

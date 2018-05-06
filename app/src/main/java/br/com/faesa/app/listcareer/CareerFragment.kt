@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.registercareer.RegisterCareerActivity
+import br.com.faesa.app.repository.REPOSITORY
 
 /**
  * Created by wiliam on 5/5/18.
@@ -41,12 +42,6 @@ class CareerFragment : BaseFragment() {
     }
 
     private fun getCareers(): List<ItemListCareer> {
-        return listOf(
-            ItemListCareer("Desenvolvedor Android", "Nesta carreira aprenda desenvolver aplicações android nativamente usando os recursos da API do sistema Google"),
-            ItemListCareer("Desenvolvedor front-end", "Vá do baśico ao avançado nas tecnologias web e aprenda publicar seus sites"),
-            ItemListCareer("UX-Designer", "Abreviação de User Experience ou “Experiência do Usuário”, em tradução literal) é responsável, como o próprio nome diz, por garantir que o design projetado atenda a todas as necessidades dos usuários"),
-            ItemListCareer("Gerente de projetos", "Um gerente de projetos é um profissional no campo de gerência de projetos que tem a responsabilidade de planejar e controlar a execução de projetos em diversas áreas de atuação"),
-            ItemListCareer("Analista de sistema", "O analista de sistemas é um profissional da área de tecnologia da informação (TI) especializado em desenvolver sistemas informatizados capazes de atender às necessidades e objetivos da organização ")
-        )
+        return ItemListCareer.newInstances(REPOSITORY.CAREER.ALL)
     }
 }

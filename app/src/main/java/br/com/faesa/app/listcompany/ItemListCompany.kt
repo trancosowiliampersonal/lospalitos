@@ -11,5 +11,11 @@ class ItemListCompany (val name:String, val description: String = "", val id : L
         fun newInstance(t:Company) : ItemListCompany {
             return ItemListCompany(t.name, t.description, t.id)
         }
+
+        fun newInstances(companys: List<Company>): List<ItemListCompany> {
+            return companys.map {
+                ItemListCompany(it.name, it.description,it.id)
+            }
+        }
     }
 }

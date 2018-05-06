@@ -9,7 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
-import br.com.faesa.app.registercareer.RegisterCareerActivity
+import br.com.faesa.app.dao.CompanyDAO
+import br.com.faesa.app.listcareer.CareerActivity
 
 /**
  * Created by wiliam on 5/5/18.
@@ -36,20 +37,12 @@ class CompanyFragment : BaseFragment() {
         rec?.adapter = adapter
 
         adapter.onClickListener = {
-            startActivity(Intent(context, RegisterCareerActivity::class.java))
+            startActivity(CareerActivity.newIntent(context, it.id))
         }
 
         return view
     }
     private fun  getItens(): List<ItemListCompany> {
-        return listOf(
-            ItemListCompany("A", "Empresa boa"),
-            ItemListCompany("B", "Empresa ruim"),
-            ItemListCompany("C", "Empresa interessante"),
-            ItemListCompany("D", "Empresa com uma descricao bem grande, grande mesmo"),
-            ItemListCompany("E", "Empresa boa"),
-            ItemListCompany("F", "Empresa ruim"),
-            ItemListCompany("G", "Empresa interessante")
-        )
+        return ItemListCompany.newInstances(CompanyDAO(context).list)
     }
 }

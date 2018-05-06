@@ -63,9 +63,8 @@ class CompanyAdapter(val itens: List<ItemListCompany>) : RecyclerView.Adapter<Co
 
     class CompanyBannerHolder(view: View) : CompanyHolder(view) {
         override fun render(iten: ItemListCompany?) {
-            itemView.banImgBanner.setImageResource(R.drawable.banner_career)
+            itemView.banImgBanner.setImageResource(R.drawable.banner_company)
         }
-
     }
 
 

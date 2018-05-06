@@ -5,12 +5,36 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
+import br.com.faesa.app.domain.Entity
 
 import java.util.ArrayList
 
-abstract class BaseDAO<E : Entity>/* CONSTRUCTORS */
-(context: Context) : SQLiteOpenHelper(context, "database", null, 1) {
+abstract class BaseDAO<E : Entity>
+(context: Context) : SQLiteOpenHelper(context, DATABASE, null, VERSION) {
 
+    companion object {
+        const val DATABASE = "database"
+        const val VERSION = 1
+    }
+
+    override fun onCreate(db: SQLiteDatabase) {
+        val createTables = StringBuilder()
+
+        try {
+            createTables.append(DB.COMPANY.CREATE_TABLE)
+            createTables.append(DB.CAREER.CREATE_TABLE)
+            createTables.append(DB.COMPANY_CAREER.CREATE_TABLE)
+        } catch (e: BuildException) {
+            Log.e("ERROR", "Algo de errado nao deu certo")
+        }
+
+        db.execSQL(createTables.toString())
+    }
+
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+
+    }
     /* CONTRACT */
     protected abstract fun cursorToEntity(c: Cursor): E
 
@@ -21,6 +45,12 @@ abstract class BaseDAO<E : Entity>/* CONSTRUCTORS */
     /* CRUD - CREATE */
     fun insert(entity: E) {
         entity.id = writableDatabase.insert(table, null, entityToContentValues(entity))
+    }
+
+    fun insert(entitys: List<E>) {
+        entitys.forEach {
+            writableDatabase.insert(table, null, entityToContentValues(it))
+        }
     }
 
     /* CRUD - READ */
@@ -77,4 +107,16 @@ abstract class BaseDAO<E : Entity>/* CONSTRUCTORS */
         }
         return list
     }
+}
+
+fun Context.deleteAppDatabase() {
+    this.deleteDatabase(BaseDAO.DATABASE)
+}
+
+fun Cursor.getLongColumn(column : String) : Long {
+    return this.getLong(this.getColumnIndex(column))
+}
+
+fun Cursor.getStringColumn(column : String) : String {
+    return this.getString(this.getColumnIndex(column))
 }

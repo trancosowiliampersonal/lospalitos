@@ -11,5 +11,11 @@ data class ItemListCareer(val name:String, val description: String = "", val id 
         fun newInstance(career:Career) : ItemListCareer {
             return ItemListCareer(career.name, career.description, career.id)
         }
+
+        fun newInstances(list: List<Career>): List<ItemListCareer> {
+            return list.map {
+                ItemListCareer(it.name, it.description,it.id)
+            }
+        }
     }
 }
