@@ -34,8 +34,8 @@ class CareerFragment : BaseFragment() {
         carRecCareers?.layoutManager = LinearLayoutManager(context)
         carRecCareers?.adapter = adapter
 
-        adapter.onClickListener = { (name) ->
-            startActivity(CareerActivity.newIntent(context, 1))
+        adapter.onClickListener = {
+//            startActivity(CareerActivity.newIntent(context, it.id))
         }
 
         return view
