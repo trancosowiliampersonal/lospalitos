@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="br.com.faesa.app.listknowledge.KnowledgeActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/knowImgBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_detail_horizontal"
+            android:layout_marginRight="@dimen/margin_detail_horizontal"
+            android:layout_marginTop="@dimen/margin_detail_vertical"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/banner_progress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/knowLblKnowledge"
+            style="@style/TitleCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:background="@drawable/shadow_title_detail"
+            android:paddingBottom="8dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="10dp"
+            android:textColor="#FFF"
+            android:textSize="22sp"
+            app:autoSizeMaxTextSize="22sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/app_font_bold"
+            app:layout_constraintEnd_toEndOf="@+id/knowImgBanner"
+            app:layout_constraintStart_toStartOf="@id/knowImgBanner"
+            app:layout_constraintTop_toTopOf="@id/knowImgBanner"
+            tools:text="Conhecimento" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/knowTxtDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#5a5a5a"
+            android:textSize="13sp"
+            app:autoSizeMaxTextSize="13sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/app_font_italic"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/knowImgBanner"
+            tools:text="Description dasdjsddasjnd dasjndsa dsajndkjsa djasnkjdsa dasjkdsa dasj" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

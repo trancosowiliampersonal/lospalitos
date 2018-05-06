@@ -46,7 +46,7 @@ class KnowledgeFragment : BaseFragment() {
         rec?.adapter = adapter
 
         adapter.onClickListener = {
-//            startActivity(CompanyActivity.newIntent(context, it.id))
+            startActivity(KnowledgeActivity.newIntent(context, it.id))
         }
 
         return view

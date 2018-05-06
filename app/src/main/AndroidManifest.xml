@@ -20,7 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".listcompany.CompanyActivity"
             android:label="Quero conhecer"
@@ -31,6 +30,7 @@
             android:label="Carreira"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".listknowledge.KnowledgeActivity"></activity>
     </application>
 
 </manifest>
