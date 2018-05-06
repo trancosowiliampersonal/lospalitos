@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:overScrollMode="never"
     android:scrollbars="none"
-    tools:context="br.com.faesa.app.career.CareerActivity">
+    tools:context="br.com.faesa.app.registercareer.RegisterCareerActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,6 +73,8 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/carRecList"
+            android:layout_marginLeft="@dimen/margin_rec_vertical"
+            android:paddingRight="@dimen/margin_rec_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

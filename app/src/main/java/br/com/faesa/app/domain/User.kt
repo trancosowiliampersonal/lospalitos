@@ -5,8 +5,7 @@ import br.com.faesa.app.dao.Entity
 /**
  * Created by wiliam on 5/5/18.
  */
-data class Career (
-        override var id: Long = 0,
-        val name: String,
-        val description: String
+data class User(
+        override var id: Long,
+        val name : String
 ): Entity

@@ -25,7 +25,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden"
             android:screenOrientation="portrait"></activity>
 
-        <activity android:name=".career.CareerActivity"
+        <activity android:name=".registercareer.RegisterCareerActivity"
             android:windowSoftInputMode="adjustResize|stateHidden"
             android:screenOrientation="portrait"></activity>
     </application>

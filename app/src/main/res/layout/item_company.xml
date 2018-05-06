@@ -21,7 +21,7 @@
             android:layout_height="wrap_content">
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/itTxtCareerName"
+                android:id="@+id/itTxtCompanyName"
                 style="@style/TitleCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,18 +31,13 @@
                 app:autoSizeTextType="uniform"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                tools:text="Carreira" />
+                tools:text="Empresa" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/itTxtCareerDescription"
+                android:id="@+id/itTxtCompanyDescription"
+                style="@style/DescriptionCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="2dp"
-                android:textColor="#4a4a4a"
-                android:textSize="14sp"
                 app:autoSizeMaxTextSize="14sp"
                 app:autoSizeMinTextSize="10sp"
                 app:autoSizeTextType="uniform"
@@ -50,7 +45,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/itTxtCareerName"
+                app:layout_constraintTop_toBottomOf="@id/itTxtCompanyName"
                 tools:text="Description dasdjsddasjnd dasjndsa dsajndkjsa djasnkjdsa dasjkdsa dasj" />
 
         </android.support.constraint.ConstraintLayout>
