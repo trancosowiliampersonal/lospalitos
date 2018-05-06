@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         app:fontFamily="@font/app_font"
         android:background="?attr/colorPrimary"
+        app:tabTextAppearance="@style/AppTab"
         app:tabGravity="fill"
         app:tabMode="fixed"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
