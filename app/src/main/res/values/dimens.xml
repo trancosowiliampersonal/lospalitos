@@ -10,4 +10,7 @@
     <dimen name="margin_banner_vertical">2dp</dimen>
     <dimen name="margin_banner_vertical_first">8dp</dimen>
     <dimen name="margin_banner_horizontal">11dp</dimen>
+
+    <dimen name="margin_detail_horizontal">12dp</dimen>
+    <dimen name="margin_detail_vertical">8dp</dimen>
 </resources>

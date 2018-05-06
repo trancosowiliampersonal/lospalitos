@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.domain.Company
-import br.com.faesa.app.listcareer.CareerActivity
 import br.com.faesa.app.repository.REPOSITORY
 
 /**
@@ -36,7 +35,7 @@ class CompanyFragment : BaseFragment() {
         rec?.adapter = adapter
 
         adapter.onClickListener = {
-            startActivity(CareerActivity.newIntent(context, it.id))
+            startActivity(CompanyActivity.newIntent(context, it.id))
         }
 
         return view

@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.item_career.view.*
 /**
  * Created by wiliam on 5/5/18.
  */
-class CareerAdapter(val careerListCareers: List<Career>) : RecyclerView.Adapter<CareerAdapter.CareerHolder>() {
+class CareerAdapter(val careerListCareers: List<Career>, val showBanner: Boolean = true) : RecyclerView.Adapter<CareerAdapter.CareerHolder>() {
 
     var onClickListener: ((Career) -> Unit)? = null
 
@@ -22,15 +22,16 @@ class CareerAdapter(val careerListCareers: List<Career>) : RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: CareerHolder?, position: Int) {
-        holder?.render(careerListCareers.elementAtOrNull(position -1))
+        val pos = if(showBanner) position - 1 else position;
+        holder?.render(careerListCareers.elementAtOrNull(pos))
 
         (holder as? CareerDetailHolder)?.itemView?.setOnClickListener {
-            onClickListener?.invoke(careerListCareers[position -1])
+            onClickListener?.invoke(careerListCareers[pos])
         }
     }
 
     override fun getItemCount(): Int {
-        return careerListCareers.size + 1
+        return if(showBanner) careerListCareers.size + 1 else careerListCareers.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CareerHolder {
@@ -44,9 +45,13 @@ class CareerAdapter(val careerListCareers: List<Career>) : RecyclerView.Adapter<
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when(position) {
-            0 -> TYPE_BANNER
-            else -> TYPE_DETAIL
+        if (showBanner){
+            return when(position) {
+                0 -> TYPE_BANNER
+                else -> TYPE_DETAIL
+            }
+        } else {
+            return TYPE_DETAIL
         }
     }
 

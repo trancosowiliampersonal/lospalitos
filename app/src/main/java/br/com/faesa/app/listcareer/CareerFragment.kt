@@ -1,6 +1,5 @@
 package br.com.faesa.app.listcareer
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -10,7 +9,9 @@ import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.domain.Career
+import br.com.faesa.app.listcompany.CompanyActivity
 import br.com.faesa.app.repository.REPOSITORY
+
 
 /**
  * Created by wiliam on 5/5/18.
@@ -18,12 +19,24 @@ import br.com.faesa.app.repository.REPOSITORY
 class CareerFragment : BaseFragment() {
 
     override val title: String = "Carreiras"
+
     var carRecCareers:RecyclerView? = null
-    val adapter by lazy { CareerAdapter(getCareers()) }
+    val adapter by lazy { CareerAdapter(getCareers(), company == null) }
+    val idCompany by lazy { this.arguments.getLong(CompanyActivity.EXTRA_ID_COMPANY, -1) }
+    val company by lazy { if(idCompany > 0) REPOSITORY.COMPANY.ALL.firstOrNull{ it.id == idCompany} else null }
 
     companion object {
-        fun newInstance(): CareerFragment {
-            return CareerFragment()
+
+        const val EXTRA_ID_COMPANY = "EXTRA_ID_COMPANY"
+
+        fun newInstance(idCompany:Long? = -1): CareerFragment {
+            val frag = CareerFragment()
+
+            val bundle = Bundle()
+            bundle.putLong(EXTRA_ID_COMPANY, idCompany ?: -1)
+            frag.arguments = bundle
+
+            return frag
         }
     }
 
@@ -31,17 +44,17 @@ class CareerFragment : BaseFragment() {
         val view =  inflater?.inflate(R.layout.fragment_carrer, container, false)
 
         carRecCareers = view?.findViewById<RecyclerView>(R.id.carRecCareers)
-        carRecCareers?.layoutManager = LinearLayoutManager(context)
+        carRecCareers?.layoutManager = LinearLayoutManager(container?.context)
         carRecCareers?.adapter = adapter
 
         adapter.onClickListener = {
-//            startActivity(CareerActivity.newIntent(context, it.id))
+//            startActivity(CompanyActivity.newIntent(context, it.id))
         }
 
         return view
     }
 
     private fun getCareers(): List<Career> {
-        return REPOSITORY.CAREER.ALL
+        return company?.let { it.careers } ?: REPOSITORY.CAREER.ALL
     }
 }
