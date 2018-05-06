@@ -19,12 +19,22 @@ class KnowledgeFragment : BaseFragment() {
     override val title: String = "Conhecimentos"
 
     var rec: RecyclerView? = null
-    val adapter by lazy { KnowledgeAdapter(getItens()) }
-
+    val adapter by lazy { KnowledgeAdapter(getItens(), career == null) }
+    val idCareer by lazy { this.arguments.getLong(EXTRA_ID, -1) }
+    val career by lazy { if(idCareer > 0) REPOSITORY.CAREER.ALL.firstOrNull{ it.id == idCareer} else null }
 
     companion object {
-        fun newInstance(): KnowledgeFragment {
-            return KnowledgeFragment()
+
+        const val EXTRA_ID = "EXTRA_ID"
+
+        fun newInstance(id:Long? = -1): KnowledgeFragment {
+            val frag =  KnowledgeFragment()
+
+            val bundle = Bundle()
+            bundle.putLong(EXTRA_ID, id ?: -1)
+            frag.arguments = bundle
+
+            return frag
         }
     }
 
@@ -43,6 +53,6 @@ class KnowledgeFragment : BaseFragment() {
     }
 
     private fun  getItens(): List<Knowledge> {
-        return REPOSITORY.KNOWLEDGE.ALL
+        return career?.let { it.knowledges } ?: REPOSITORY.KNOWLEDGE.ALL
     }
 }

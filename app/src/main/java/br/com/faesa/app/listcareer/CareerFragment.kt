@@ -9,9 +9,7 @@ import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.domain.Career
-import br.com.faesa.app.listcompany.CompanyActivity
 import br.com.faesa.app.repository.REPOSITORY
-
 
 /**
  * Created by wiliam on 5/5/18.
@@ -22,18 +20,18 @@ class CareerFragment : BaseFragment() {
 
     var carRecCareers:RecyclerView? = null
     val adapter by lazy { CareerAdapter(getCareers(), company == null) }
-    val idCompany by lazy { this.arguments.getLong(CompanyActivity.EXTRA_ID_COMPANY, -1) }
+    val idCompany by lazy { this.arguments.getLong(EXTRA_ID, -1) }
     val company by lazy { if(idCompany > 0) REPOSITORY.COMPANY.ALL.firstOrNull{ it.id == idCompany} else null }
 
     companion object {
 
-        const val EXTRA_ID_COMPANY = "EXTRA_ID_COMPANY"
+        const val EXTRA_ID = "EXTRA_ID"
 
-        fun newInstance(idCompany:Long? = -1): CareerFragment {
+        fun newInstance(id:Long? = -1): CareerFragment {
             val frag = CareerFragment()
 
             val bundle = Bundle()
-            bundle.putLong(EXTRA_ID_COMPANY, idCompany ?: -1)
+            bundle.putLong(EXTRA_ID, id ?: -1)
             frag.arguments = bundle
 
             return frag
