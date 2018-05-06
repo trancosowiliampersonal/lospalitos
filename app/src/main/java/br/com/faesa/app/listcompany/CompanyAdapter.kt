@@ -50,7 +50,6 @@ class CompanyAdapter(val itens: List<Company>) : RecyclerView.Adapter<CompanyAda
         }
     }
 
-
     abstract class CompanyHolder(view: View) : RecyclerView.ViewHolder(view) {
         abstract fun render(item: Company?)
     }

@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.domain.Career
-import br.com.faesa.app.registercareer.RegisterCareerActivity
 import br.com.faesa.app.repository.REPOSITORY
 
 /**
@@ -36,7 +35,7 @@ class CareerFragment : BaseFragment() {
         carRecCareers?.adapter = adapter
 
         adapter.onClickListener = { (name) ->
-            startActivity(Intent(context, RegisterCareerActivity::class.java))
+            startActivity(Intent(context, CareerActivity::class.java))
         }
 
         return view
