@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
+import android.text.method.LinkMovementMethod
 import br.com.faesa.app.R
 import br.com.faesa.app.repository.REPOSITORY
 import kotlinx.android.synthetic.main.activity_knowledge.*
@@ -28,6 +30,8 @@ class KnowledgeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_knowledge)
 
         knowLblKnowledge.text = knowledge?.name
-        knowTxtDescription.text = knowledge?.description
+        knowTxtDescription.text = Html.fromHtml(knowledge?.description)
+
+        knowTxtDescription.movementMethod = LinkMovementMethod.getInstance()
     }
 }
