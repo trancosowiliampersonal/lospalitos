@@ -22,7 +22,7 @@ class CareerAdapter(val careerListCareers: List<Career>, val showBanner: Boolean
     }
 
     override fun onBindViewHolder(holder: CareerHolder?, position: Int) {
-        val pos = if(showBanner) position - 1 else position;
+        val pos = if(showBanner) position - 1 else position
         holder?.render(careerListCareers.elementAtOrNull(pos))
 
         (holder as? CareerDetailHolder)?.itemView?.setOnClickListener {

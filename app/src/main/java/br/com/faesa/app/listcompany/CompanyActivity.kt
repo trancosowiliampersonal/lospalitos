@@ -8,7 +8,7 @@ import android.os.Bundle
 import br.com.faesa.app.R
 import br.com.faesa.app.listcareer.CareerFragment
 import br.com.faesa.app.repository.REPOSITORY
-import kotlinx.android.synthetic.main.activity_career.*
+import kotlinx.android.synthetic.main.activity_company.*
 
 class CompanyActivity : AppCompatActivity() {
 
@@ -28,11 +28,11 @@ class CompanyActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_career)
+        setContentView(R.layout.activity_company)
 
-        carLblCompany.text = company?.name
-        carTxtDescription.text = company?.description
+        comLblCompany.text = company?.name
+        comTxtDescription.text = company?.description
 
-        supportFragmentManager.beginTransaction().add(R.id.carFlFragment, CareerFragment.newInstance(company?.id)).commit()
+        supportFragmentManager.beginTransaction().add(R.id.comFlFragment, CareerFragment.newInstance(company?.id)).commit()
     }
 }

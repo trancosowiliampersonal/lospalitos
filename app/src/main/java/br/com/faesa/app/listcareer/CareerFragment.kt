@@ -48,7 +48,7 @@ class CareerFragment : BaseFragment() {
         carRecCareers?.adapter = adapter
 
         adapter.onClickListener = {
-//            startActivity(CompanyActivity.newIntent(context, it.id))
+            startActivity(CareerActivity.newIntent(context, it.id))
         }
 
         return view

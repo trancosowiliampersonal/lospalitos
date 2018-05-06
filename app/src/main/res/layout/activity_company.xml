@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="br.com.faesa.app.listcareer.CareerActivity">
+    tools:context="br.com.faesa.app.listcompany.CompanyActivity">
 
     <ImageView
-        android:id="@+id/carImgBanner"
+        android:id="@+id/comImgBanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_detail_vertical"
@@ -15,13 +16,13 @@
         android:layout_marginRight="@dimen/margin_detail_horizontal"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@drawable/banner_career"
+        android:src="@drawable/banner_company"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/carLblCareer"
+        android:id="@+id/comLblCompany"
         style="@style/TitleCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -36,13 +37,13 @@
         app:autoSizeMinTextSize="10sp"
         app:autoSizeTextType="uniform"
         app:fontFamily="@font/app_font_bold"
-        app:layout_constraintEnd_toEndOf="@+id/carImgBanner"
-        app:layout_constraintStart_toStartOf="@id/carImgBanner"
-        app:layout_constraintTop_toTopOf="@id/carImgBanner"
-        tools:text="Carreira" />
+        app:layout_constraintEnd_toEndOf="@+id/comImgBanner"
+        app:layout_constraintStart_toStartOf="@id/comImgBanner"
+        app:layout_constraintTop_toTopOf="@id/comImgBanner"
+        tools:text="Empresa" />
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/carTxtDescription"
+        android:id="@+id/comTxtDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="14dp"
@@ -56,11 +57,11 @@
         app:fontFamily="@font/app_font_italic"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/carImgBanner"
+        app:layout_constraintTop_toBottomOf="@id/comImgBanner"
         tools:text="Description dasdjsddasjnd dasjndsa dsajndkjsa djasnkjdsa dasjkdsa dasj" />
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/carLblKnowledge"
+        android:id="@+id/comLblCareer"
         style="@style/TitleCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,31 +70,18 @@
         app:autoSizeMaxTextSize="16sp"
         app:autoSizeMinTextSize="10sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintTop_toBottomOf="@id/carTxtDescription"
+        app:layout_constraintTop_toBottomOf="@id/comTxtDescription"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="Conhecimentos" />
+        android:text="Carreiras" />
 
     <FrameLayout
-        android:id="@+id/carFlFragment"
+        android:id="@+id/comFlFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/carLblKnowledge"
+        app:layout_constraintTop_toBottomOf="@id/comLblCareer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/carBtnShow"/>
-    
-    <br.com.faesa.app.view.component.AppButton
-        android:id="@+id/carBtnShow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="@dimen/margin_detail_horizontal"
-        android:layout_marginRight="@dimen/margin_detail_horizontal"
-        android:layout_marginBottom="@dimen/margin_detail_vertical"
-        app:type="normal"
-        android:text="Comece Agora"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </android.support.constraint.ConstraintLayout>

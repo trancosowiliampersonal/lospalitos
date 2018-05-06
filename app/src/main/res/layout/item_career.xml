@@ -26,7 +26,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fontFamily="@font/app_font"
-                app:autoSizeTextType="uniform"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 tools:text="Carreira" />
@@ -41,7 +40,6 @@
                 android:layout_marginTop="2dp"
                 android:textColor="#4a4a4a"
                 android:textSize="14sp"
-                app:autoSizeTextType="uniform"
                 app:fontFamily="@font/app_font"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
