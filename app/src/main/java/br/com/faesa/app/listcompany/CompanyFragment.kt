@@ -36,7 +36,7 @@ class CompanyFragment : BaseFragment() {
         rec?.adapter = adapter
 
         adapter.onClickListener = {
-            startActivity(CareerActivity.newIntent(context, it.id))
+//            startActivity(CareerActivity.newIntent(context, it.id))
         }
 
         return view
