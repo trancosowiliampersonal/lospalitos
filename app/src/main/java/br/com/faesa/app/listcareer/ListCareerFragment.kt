@@ -9,8 +9,6 @@ import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.career.CareerActivity
 import br.com.faesa.app.domain.Career
-import br.com.faesa.app.listcompany.ListCareerContract
-import br.com.faesa.app.listcompany.ListCareerPresenter
 import kotlinx.android.synthetic.main.fragment_carrer.*
 
 /**

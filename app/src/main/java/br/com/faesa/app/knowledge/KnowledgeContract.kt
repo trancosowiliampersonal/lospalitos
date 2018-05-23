@@ -1,20 +1,20 @@
-package br.com.faesa.app.career
+package br.com.faesa.app.knowledge
 
 import br.com.faesa.app.BasePresenter
 import br.com.faesa.app.BaseView
-import br.com.faesa.app.domain.Career
+import br.com.faesa.app.domain.Knowledge
 
 /**
  * Created by wiliam on 5/23/18.
  */
-interface CareerContract{
+interface KnowledgeContract{
     interface Presenter : BasePresenter<View> {
-        fun loadCareer(idCareer: Long)
+        fun loadKnowledge(idKnowledge: Long)
     }
 
     interface View : BaseView<Presenter> {
         fun showLoadDialog()
         fun dismissLoadDialog()
-        fun loadCareer(career: Career?)
+        fun loadKnowledge(knowledge: Knowledge?)
     }
 }

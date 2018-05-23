@@ -1,4 +1,4 @@
-package br.com.faesa.app.listcompany
+package br.com.faesa.app.listcareer
 
 import br.com.faesa.app.domain.Career
 import br.com.faesa.app.repository.REPOSITORY

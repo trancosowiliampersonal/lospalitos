@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import br.com.faesa.app.R
 import br.com.faesa.app.listcareer.ListCareerFragment
 import br.com.faesa.app.listcompany.ListCompanyFragment
-import br.com.faesa.app.listknowledge.KnowledgeFragment
+import br.com.faesa.app.listknowledge.ListKnowledgeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(){
         val adapter = MainViewPageAdapter(supportFragmentManager)
         adapter.add(ListCompanyFragment.newInstance())
         adapter.add(ListCareerFragment.newInstance())
-        adapter.add(KnowledgeFragment.newInstance())
+        adapter.add(ListKnowledgeFragment.newInstance())
         return adapter
     }
 }

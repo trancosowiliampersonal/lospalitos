@@ -2,17 +2,11 @@ package br.com.faesa.app.career
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import br.com.faesa.app.R
-import br.com.faesa.app.company.CareerContract
-import br.com.faesa.app.company.CareerPresenter
-import br.com.faesa.app.company.CompanyContract
-import br.com.faesa.app.company.CompanyPresenter
 import br.com.faesa.app.domain.Career
-import br.com.faesa.app.domain.Company
-import br.com.faesa.app.listknowledge.KnowledgeFragment
-import br.com.faesa.app.repository.REPOSITORY
+import br.com.faesa.app.listknowledge.ListKnowledgeFragment
 import kotlinx.android.synthetic.main.activity_career.*
 
 class CareerActivity : AppCompatActivity(), CareerContract.View {
@@ -28,11 +22,10 @@ class CareerActivity : AppCompatActivity(), CareerContract.View {
     companion object {
         const val EXTRA_ID = "EXTRA_ID"
 
-        fun newIntent(context: Context, idCareer:Long) : Intent {
-            val intent = Intent(context, CareerActivity::class.java)
-            intent.putExtra(EXTRA_ID, idCareer)
-
-            return intent
+        fun newIntent(context: Context, idCareer: Long): Intent {
+            return Intent(context, CareerActivity::class.java).apply {
+                putExtra(EXTRA_ID, idCareer)
+            }
         }
     }
 
@@ -50,6 +43,6 @@ class CareerActivity : AppCompatActivity(), CareerContract.View {
         carLblCareer.text = career?.name
         carTxtDescription.text = career?.description
 
-        supportFragmentManager.beginTransaction().add(R.id.carFlFragment, KnowledgeFragment.newInstance(career?.id)).commit()
+        supportFragmentManager.beginTransaction().add(R.id.carFlFragment, ListKnowledgeFragment.newInstance(career?.id)).commit()
     }
 }

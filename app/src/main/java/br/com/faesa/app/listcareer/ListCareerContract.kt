@@ -1,4 +1,4 @@
-package br.com.faesa.app.listcompany
+package br.com.faesa.app.listcareer
 
 import br.com.faesa.app.BasePresenter
 import br.com.faesa.app.BaseView

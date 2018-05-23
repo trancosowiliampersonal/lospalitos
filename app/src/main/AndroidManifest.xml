@@ -33,7 +33,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
-        <activity android:name=".listknowledge.KnowledgeActivity"
+        <activity android:name=".knowledge.KnowledgeActivity"
             android:label="Quero Este Conhecimento"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden"/>

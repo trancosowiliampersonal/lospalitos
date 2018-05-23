@@ -12,9 +12,14 @@ import kotlinx.android.synthetic.main.item_kwnoledge.view.*
 /**
  * Created by wiliam on 5/6/18.
  */
-class KnowledgeAdapter (val itens: List<Knowledge>, val showBanner: Boolean = true) : RecyclerView.Adapter<KnowledgeAdapter.KnowledgeHolder>() {
+class ListKnowledgeAdapter(val showBanner: Boolean = true) : RecyclerView.Adapter<ListKnowledgeAdapter.KnowledgeHolder>() {
 
     var onClickListener: ((Knowledge) -> Unit)? = null
+    var itens: List<Knowledge> = listOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     companion object {
         const val TYPE_BANNER = 0
@@ -23,7 +28,6 @@ class KnowledgeAdapter (val itens: List<Knowledge>, val showBanner: Boolean = tr
 
     override fun onBindViewHolder(holder: KnowledgeHolder?, position: Int) {
         val pos = if(showBanner) position - 1 else position
-
         holder?.render(itens.elementAtOrNull(pos))
 
         (holder as? KnowledgeDetailHolder)?.itemView?.setOnClickListener {

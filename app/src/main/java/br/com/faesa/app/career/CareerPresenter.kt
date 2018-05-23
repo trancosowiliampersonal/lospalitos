@@ -1,4 +1,4 @@
-package br.com.faesa.app.company
+package br.com.faesa.app.career
 
 import br.com.faesa.app.repository.REPOSITORY
 
@@ -6,11 +6,11 @@ import br.com.faesa.app.repository.REPOSITORY
  * Created by wiliam on 5/23/18.
  */
 class CareerPresenter : CareerContract.Presenter {
+    override lateinit var view: CareerContract.View
+
     override fun loadCareer(idCareer: Long) {
         view.showLoadDialog()
         view.loadCareer(REPOSITORY.CAREER.ALL.firstOrNull { it.id == idCareer })
         view.dismissLoadDialog()
     }
-
-    override lateinit var view: CareerContract.View
 }
