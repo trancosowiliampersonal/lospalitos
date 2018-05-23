@@ -18,7 +18,7 @@ import org.koin.android.ext.android.inject
 class ListCareerFragment : BaseFragment(), ListCareerContract.View {
 
     override val title: String = "Carreiras"
-    override val presenter: ListCareerContract.Presenter by inject()
+    override val presenter by inject<ListCareerContract.Presenter>()
 
     val adapter by lazy { ListCareerAdapter(idCompany <= 0) }
     val idCompany by lazy { this.arguments.getLong(EXTRA_ID, -1) }

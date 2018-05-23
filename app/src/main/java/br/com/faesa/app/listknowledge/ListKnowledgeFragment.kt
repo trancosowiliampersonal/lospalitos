@@ -20,7 +20,7 @@ import org.koin.android.ext.android.inject
 class ListKnowledgeFragment : BaseFragment(), ListKnowledgeContract.View {
 
     override val title: String = "Conhecimentos"
-    override val presenter: ListKnowledgeContract.Presenter by inject()
+    override val presenter by inject<ListKnowledgeContract.Presenter>()
 
     val adapter by lazy { ListKnowledgeAdapter(idCareer <= 0) }
     val idCareer by lazy { this.arguments.getLong(EXTRA_ID, -1) }

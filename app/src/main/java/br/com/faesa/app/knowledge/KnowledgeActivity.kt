@@ -13,7 +13,7 @@ import org.koin.android.ext.android.inject
 
 class KnowledgeActivity : AppCompatActivity(), KnowledgeContract.View {
 
-    override val presenter: KnowledgeContract.Presenter by inject()
+    override val presenter by inject<KnowledgeContract.Presenter>()
 
     val idKnowledge by lazy { intent.getLongExtra(EXTRA_ID, -1) }
 

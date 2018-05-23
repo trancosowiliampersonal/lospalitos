@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_company.*
 import org.koin.android.ext.android.inject
 
 class CompanyActivity : AppCompatActivity(), CompanyContract.View {
-    override val presenter: CompanyContract.Presenter by inject()
+    override val presenter by inject<CompanyContract.Presenter>()
 
     val idCompany by lazy { intent.getLongExtra(EXTRA_ID_COMPANY, -1) }
 

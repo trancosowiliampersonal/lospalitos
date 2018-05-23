@@ -12,7 +12,7 @@ import org.koin.android.ext.android.inject
 
 class CareerActivity : AppCompatActivity(), CareerContract.View {
 
-    override val presenter: CareerContract.Presenter by inject()
+    override val presenter by inject<CareerContract.Presenter>()
 
     val idCareer by lazy { intent.getLongExtra(EXTRA_ID, -1) }
 
