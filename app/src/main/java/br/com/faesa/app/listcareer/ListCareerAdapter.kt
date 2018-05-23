@@ -12,9 +12,14 @@ import kotlinx.android.synthetic.main.item_career.view.*
 /**
  * Created by wiliam on 5/5/18.
  */
-class CareerAdapter(val careerListCareers: List<Career>, val showBanner: Boolean = true) : RecyclerView.Adapter<CareerAdapter.CareerHolder>() {
+class ListCareerAdapter(val showBanner: Boolean = true) : RecyclerView.Adapter<ListCareerAdapter.CareerHolder>() {
 
     var onClickListener: ((Career) -> Unit)? = null
+    var itens: List<Career> = listOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     companion object {
         const val TYPE_BANNER = 0
@@ -22,21 +27,21 @@ class CareerAdapter(val careerListCareers: List<Career>, val showBanner: Boolean
     }
 
     override fun onBindViewHolder(holder: CareerHolder?, position: Int) {
-        val pos = if(showBanner) position - 1 else position
-        holder?.render(careerListCareers.elementAtOrNull(pos))
+        val pos = if (showBanner) position - 1 else position
+        holder?.render(itens.elementAtOrNull(pos))
 
         (holder as? CareerDetailHolder)?.itemView?.setOnClickListener {
-            onClickListener?.invoke(careerListCareers[pos])
+            onClickListener?.invoke(itens[pos])
         }
     }
 
     override fun getItemCount(): Int {
-        return if(showBanner) careerListCareers.size + 1 else careerListCareers.size
+        return if (showBanner) itens.size + 1 else itens.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CareerHolder {
 
-        val holder = when(viewType) {
+        val holder = when (viewType) {
             TYPE_BANNER -> CareerBannerHolder(LayoutInflater.from(parent?.context).inflate(R.layout.banner, parent, false))
             else -> CareerDetailHolder(LayoutInflater.from(parent?.context).inflate(R.layout.item_career, parent, false))
         }
@@ -45,8 +50,8 @@ class CareerAdapter(val careerListCareers: List<Career>, val showBanner: Boolean
     }
 
     override fun getItemViewType(position: Int): Int {
-        if (showBanner){
-            return when(position) {
+        if (showBanner) {
+            return when (position) {
                 0 -> TYPE_BANNER
                 else -> TYPE_DETAIL
             }
@@ -73,6 +78,4 @@ class CareerAdapter(val careerListCareers: List<Career>, val showBanner: Boolean
         }
 
     }
-
-
 }
