@@ -12,9 +12,14 @@ import kotlinx.android.synthetic.main.item_company.view.*
 /**
  * Created by wiliam on 5/5/18.
  */
-class CompanyAdapter(val itens: List<Company>) : RecyclerView.Adapter<CompanyAdapter.CompanyHolder>() {
+class ListCompanyAdapter : RecyclerView.Adapter<ListCompanyAdapter.CompanyHolder>() {
 
     var onClickListener: ((Company) -> Unit)? = null
+    var itens: List<Company> = listOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     companion object {
         const val TYPE_BANNER = 0
