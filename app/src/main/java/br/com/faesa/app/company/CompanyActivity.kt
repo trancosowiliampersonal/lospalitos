@@ -8,13 +8,10 @@ import br.com.faesa.app.R
 import br.com.faesa.app.domain.Company
 import br.com.faesa.app.listcareer.ListCareerFragment
 import kotlinx.android.synthetic.main.activity_company.*
+import org.koin.android.ext.android.inject
 
 class CompanyActivity : AppCompatActivity(), CompanyContract.View {
-    override val presenter: CompanyContract.Presenter by lazy {
-        CompanyPresenter().apply {
-            this.view = this@CompanyActivity
-        }
-    }
+    override val presenter: CompanyContract.Presenter by inject()
 
     val idCompany by lazy { intent.getLongExtra(EXTRA_ID_COMPANY, -1) }
 
@@ -33,6 +30,7 @@ class CompanyActivity : AppCompatActivity(), CompanyContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_company)
 
+        presenter.view = this
         presenter.loadCompany(idCompany)
     }
 

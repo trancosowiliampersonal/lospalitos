@@ -12,6 +12,7 @@ import br.com.faesa.app.domain.Knowledge
 import br.com.faesa.app.knowledge.KnowledgeActivity
 import br.com.faesa.app.repository.REPOSITORY
 import kotlinx.android.synthetic.main.fragment_knowledge.*
+import org.koin.android.ext.android.inject
 
 /**
  * Created by wiliam on 5/5/18.
@@ -19,11 +20,7 @@ import kotlinx.android.synthetic.main.fragment_knowledge.*
 class ListKnowledgeFragment : BaseFragment(), ListKnowledgeContract.View {
 
     override val title: String = "Conhecimentos"
-    override val presenter: ListKnowledgeContract.Presenter by lazy {
-        ListKnowledgePresenter().apply {
-            this.view = this@ListKnowledgeFragment
-        }
-    }
+    override val presenter: ListKnowledgeContract.Presenter by inject()
 
     val adapter by lazy { ListKnowledgeAdapter(idCareer <= 0) }
     val idCareer by lazy { this.arguments.getLong(EXTRA_ID, -1) }
@@ -42,7 +39,10 @@ class ListKnowledgeFragment : BaseFragment(), ListKnowledgeContract.View {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_knowledge, container, false)
+        val view = inflater?.inflate(R.layout.fragment_knowledge, container, false)
+        presenter.view = this
+
+        return view
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {

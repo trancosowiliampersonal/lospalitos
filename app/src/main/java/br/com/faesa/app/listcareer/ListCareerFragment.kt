@@ -10,6 +10,7 @@ import br.com.faesa.app.R
 import br.com.faesa.app.career.CareerActivity
 import br.com.faesa.app.domain.Career
 import kotlinx.android.synthetic.main.fragment_carrer.*
+import org.koin.android.ext.android.inject
 
 /**
  * Created by wiliam on 5/5/18.
@@ -17,11 +18,7 @@ import kotlinx.android.synthetic.main.fragment_carrer.*
 class ListCareerFragment : BaseFragment(), ListCareerContract.View {
 
     override val title: String = "Carreiras"
-    override val presenter: ListCareerContract.Presenter by lazy {
-        ListCareerPresenter().apply {
-            this.view = this@ListCareerFragment
-        }
-    }
+    override val presenter: ListCareerContract.Presenter by inject()
 
     val adapter by lazy { ListCareerAdapter(idCompany <= 0) }
     val idCompany by lazy { this.arguments.getLong(EXTRA_ID, -1) }
@@ -40,7 +37,10 @@ class ListCareerFragment : BaseFragment(), ListCareerContract.View {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_carrer, container, false)
+        val view =  inflater?.inflate(R.layout.fragment_carrer, container, false)
+
+        presenter.view = this
+        return view
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {

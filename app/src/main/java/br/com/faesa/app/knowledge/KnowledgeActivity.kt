@@ -9,14 +9,11 @@ import android.text.method.LinkMovementMethod
 import br.com.faesa.app.R
 import br.com.faesa.app.domain.Knowledge
 import kotlinx.android.synthetic.main.activity_knowledge.*
+import org.koin.android.ext.android.inject
 
 class KnowledgeActivity : AppCompatActivity(), KnowledgeContract.View {
 
-    override val presenter: KnowledgeContract.Presenter by lazy {
-        KnowledgePresenter().apply {
-            view = this@KnowledgeActivity
-        }
-    }
+    override val presenter: KnowledgeContract.Presenter by inject()
 
     val idKnowledge by lazy { intent.getLongExtra(EXTRA_ID, -1) }
 
@@ -35,6 +32,7 @@ class KnowledgeActivity : AppCompatActivity(), KnowledgeContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_knowledge)
 
+        presenter.view = this
         presenter.loadKnowledge(idKnowledge)
     }
 

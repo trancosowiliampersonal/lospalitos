@@ -8,14 +8,11 @@ import br.com.faesa.app.R
 import br.com.faesa.app.domain.Career
 import br.com.faesa.app.listknowledge.ListKnowledgeFragment
 import kotlinx.android.synthetic.main.activity_career.*
+import org.koin.android.ext.android.inject
 
 class CareerActivity : AppCompatActivity(), CareerContract.View {
 
-    override val presenter: CareerContract.Presenter by lazy {
-        CareerPresenter().apply {
-            this.view = this@CareerActivity
-        }
-    }
+    override val presenter: CareerContract.Presenter by inject()
 
     val idCareer by lazy { intent.getLongExtra(EXTRA_ID, -1) }
 
@@ -33,6 +30,7 @@ class CareerActivity : AppCompatActivity(), CareerContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_career)
 
+        presenter.view = this
         presenter.loadCareer(idCareer)
     }
 

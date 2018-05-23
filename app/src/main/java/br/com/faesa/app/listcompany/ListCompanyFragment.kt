@@ -10,6 +10,7 @@ import br.com.faesa.app.R
 import br.com.faesa.app.company.CompanyActivity
 import br.com.faesa.app.domain.Company
 import kotlinx.android.synthetic.main.fragment_company.*
+import org.koin.android.ext.android.inject
 
 /**
  * Created by wiliam on 5/5/18.
@@ -17,11 +18,7 @@ import kotlinx.android.synthetic.main.fragment_company.*
 class ListCompanyFragment : BaseFragment(), ListCompanyContract.View {
 
     override val title: String = "Empresas"
-    override val presenter: ListCompanyContract.Presenter by lazy {
-        ListCompanyPresenter().apply {
-            this.view = this@ListCompanyFragment
-        }
-    }
+    override val presenter: ListCompanyContract.Presenter by inject()
 
     val adapter: ListCompanyAdapter by lazy { ListCompanyAdapter() }
 
@@ -32,7 +29,10 @@ class ListCompanyFragment : BaseFragment(), ListCompanyContract.View {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_company, container, false)
+        val view = inflater?.inflate(R.layout.fragment_company, container, false)
+
+        presenter.view = this
+        return view
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
