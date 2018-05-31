@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.R
-import br.com.faesa.app.domain.Company
+import br.com.faesa.app.data.model.CompanySimpleModel
 import kotlinx.android.synthetic.main.banner.view.*
 import kotlinx.android.synthetic.main.item_company.view.*
 
@@ -14,8 +14,8 @@ import kotlinx.android.synthetic.main.item_company.view.*
  */
 class ListCompanyAdapter : RecyclerView.Adapter<ListCompanyAdapter.CompanyHolder>() {
 
-    var onClickListener: ((Company) -> Unit)? = null
-    var itens: List<Company> = listOf()
+    var onClickListener: ((CompanySimpleModel) -> Unit)? = null
+    var itens: List<CompanySimpleModel> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -27,10 +27,10 @@ class ListCompanyAdapter : RecyclerView.Adapter<ListCompanyAdapter.CompanyHolder
     }
 
     override fun onBindViewHolder(holder: CompanyHolder?, position: Int) {
-        holder?.render(itens.elementAtOrNull(position -1))
+        holder?.render(itens.elementAtOrNull(position - 1))
 
         (holder as? CompanyDetailHolder)?.itemView?.setOnClickListener {
-            onClickListener?.invoke(itens[position -1])
+            onClickListener?.invoke(itens[position - 1])
         }
     }
 
@@ -40,7 +40,7 @@ class ListCompanyAdapter : RecyclerView.Adapter<ListCompanyAdapter.CompanyHolder
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CompanyHolder {
 
-        val holder = when(viewType) {
+        val holder = when (viewType) {
             TYPE_BANNER -> CompanyBannerHolder(LayoutInflater.from(parent?.context).inflate(R.layout.banner, parent, false))
             else -> CompanyDetailHolder(LayoutInflater.from(parent?.context).inflate(R.layout.item_company, parent, false))
         }
@@ -49,28 +49,26 @@ class ListCompanyAdapter : RecyclerView.Adapter<ListCompanyAdapter.CompanyHolder
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when(position) {
+        return when (position) {
             0 -> TYPE_BANNER
             else -> TYPE_DETAIL
         }
     }
 
     abstract class CompanyHolder(view: View) : RecyclerView.ViewHolder(view) {
-        abstract fun render(item: Company?)
+        abstract fun render(item: CompanySimpleModel?)
     }
 
     class CompanyDetailHolder(view: View) : CompanyHolder(view) {
-        override fun render(iten: Company?) {
+        override fun render(iten: CompanySimpleModel?) {
             itemView.itTxtCompanyName.text = iten?.name
             itemView.itTxtCompanyDescription.text = iten?.description
         }
     }
 
     class CompanyBannerHolder(view: View) : CompanyHolder(view) {
-        override fun render(iten: Company?) {
+        override fun render(iten: CompanySimpleModel?) {
             itemView.banImgBanner.setImageResource(R.drawable.banner_company)
         }
     }
-
-
 }

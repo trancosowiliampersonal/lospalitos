@@ -1,7 +1,6 @@
 package br.com.faesa.app.module
 
-import br.com.faesa.app.data.repository.remote.CompanyRepository
-import br.com.faesa.app.data.repository.remote.CompanyRepositoryImpl
+import br.com.faesa.app.data.repository.remote.*
 import org.koin.dsl.module.applicationContext
 
 /**
@@ -10,5 +9,7 @@ import org.koin.dsl.module.applicationContext
  */
 
 val servicesModule = applicationContext {
-    bean { CompanyRepositoryImpl(retrofit = get()) as CompanyRepository}
+    bean { CompanyRepositoryImpl(retrofit = get()) as CompanyRepository }
+    bean { CareerRepositoryImpl(retrofit = get()) as CareerRepository }
+    bean { KnowledgeRepositoryImpl(retrofit = get()) as KnowledgeRepository }
 }

@@ -1,6 +1,7 @@
 package br.com.faesa.app.data.repository.remote
 
-import br.com.faesa.app.domain.Company
+import br.com.faesa.app.data.model.CareerSimpleModel
+import br.com.faesa.app.data.model.CompanySimpleModel
 import br.com.faesa.app.domain.ApiResponse
 
 /**
@@ -8,6 +9,6 @@ import br.com.faesa.app.domain.ApiResponse
  * @date 5/30/18
  */
 interface CompanyRepository {
-    fun get(idCompany:Long, callback:(ApiResponse<Company>) -> Unit)
-    fun getAll(callback:(ApiResponse<List<Company>>) -> Unit)
+    fun getAll(callback:(ApiResponse<List<CompanySimpleModel>>) -> Unit)
+    fun getCompanyCareers(idCompany:Long, callback: (ApiResponse<List<CareerSimpleModel>>) -> Unit)
 }
