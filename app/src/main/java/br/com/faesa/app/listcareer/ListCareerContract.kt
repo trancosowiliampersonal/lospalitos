@@ -3,7 +3,6 @@ package br.com.faesa.app.listcareer
 import br.com.faesa.app.BasePresenter
 import br.com.faesa.app.BaseView
 import br.com.faesa.app.domain.Career
-import br.com.faesa.app.domain.Company
 
 /**
  * Created by wiliam on 5/22/18.

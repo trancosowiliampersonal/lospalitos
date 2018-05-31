@@ -1,7 +1,7 @@
 package br.com.faesa.app.listknowledge
 
 import br.com.faesa.app.domain.Knowledge
-import br.com.faesa.app.repository.REPOSITORY
+import br.com.faesa.app.data.REPOSITORY
 
 /**
  * Created by wiliam on 5/22/18.

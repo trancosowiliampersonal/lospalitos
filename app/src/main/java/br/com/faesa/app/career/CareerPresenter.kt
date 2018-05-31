@@ -1,6 +1,6 @@
 package br.com.faesa.app.career
 
-import br.com.faesa.app.repository.REPOSITORY
+import br.com.faesa.app.data.REPOSITORY
 
 /**
  * Created by wiliam on 5/23/18.

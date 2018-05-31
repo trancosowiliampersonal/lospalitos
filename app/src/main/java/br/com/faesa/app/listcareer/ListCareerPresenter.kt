@@ -1,7 +1,7 @@
 package br.com.faesa.app.listcareer
 
 import br.com.faesa.app.domain.Career
-import br.com.faesa.app.repository.REPOSITORY
+import br.com.faesa.app.data.REPOSITORY
 
 /**
  * Created by wiliam on 5/22/18.
@@ -17,9 +17,11 @@ class ListCareerPresenter : ListCareerContract.Presenter {
     }
 
     fun getList(idCompany: Long): List<Career> {
-        return REPOSITORY.COMPANY.ALL.firstOrNull { it.id == idCompany }.let { company ->
-            company?.careers
-        } ?: REPOSITORY.CAREER.ALL
+//        return REPOSITORY.COMPANY.ALL.firstOrNull { it.id == idCompany }.let { company ->
+//            company?.careers
+//        } ?: REPOSITORY.CAREER.ALL
+
+        return REPOSITORY.CAREER.ALL
     }
 
 }

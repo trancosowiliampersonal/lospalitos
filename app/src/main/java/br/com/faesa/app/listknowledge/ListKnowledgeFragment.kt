@@ -2,7 +2,6 @@ package br.com.faesa.app.listknowledge
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.domain.Knowledge
 import br.com.faesa.app.knowledge.KnowledgeActivity
-import br.com.faesa.app.repository.REPOSITORY
 import kotlinx.android.synthetic.main.fragment_knowledge.*
 import org.koin.android.ext.android.inject
 

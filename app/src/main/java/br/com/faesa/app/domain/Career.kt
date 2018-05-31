@@ -1,8 +1,9 @@
 package br.com.faesa.app.domain
 
 /**
- * Created by wiliam on 5/5/18.
- */
+* @author wiliam
+* @date 5/5/18
+*/
 data class Career (
         override var id: Long = 0,
         val name: String,

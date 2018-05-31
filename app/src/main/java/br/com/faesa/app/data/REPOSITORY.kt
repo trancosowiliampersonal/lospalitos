@@ -1,4 +1,4 @@
-package br.com.faesa.app.repository
+package br.com.faesa.app.data
 
 import br.com.faesa.app.domain.*
 
@@ -156,18 +156,6 @@ object REPOSITORY {
         val CARREIRAS_FAESA = listOf<Career>(CAREER.DESENVOLVEDOR_WEB, CAREER.DESIGNER, CAREER.DEV_ANDROID, CAREER.AGILISTA, CAREER.ENGENHEIRO_FRONT_END)
         val CARREIRAS_VIXTEAM = listOf<Career>(CAREER.DESENVOLVEDOR_WEB, CAREER.DESIGNER, CAREER.DEV_ANDROID, CAREER.AGILISTA, CAREER.ENGENHEIRO_FRONT_END)
         val CARREIRAS_PICPAY = listOf<Career>(CAREER.DESENVOLVEDOR_WEB, CAREER.DESIGNER, CAREER.DEV_ANDROID, CAREER.AGILISTA, CAREER.ENGENHEIRO_FRONT_END)
-
-    }
-
-    object COMPANY {
-        val AUTOGLASS = Company(1, "Autoglass", "Um lugar de pessoas que amam o que fazem.", CAREER_LIST.CARREIRAS_AUTOGLASS, PROJECT_LIST.PROJETOS_AUTOGLASS)
-        val INFLOR = Company(2, "Inflor", "Líder no mercado de sistemas para a gestão florestal", CAREER_LIST.CARREIRAS_INFLOR, PROJECT_LIST.PROJETOS_INFLOR)
-        val QUALITY = Company(3, "Quality Automação", "Soluções inteligentes para sua empresa, Inovação, Tecnologia e Segurança para seu posto de combustível", CAREER_LIST.CARREIRAS_QUALITY, PROJECT_LIST.PROJETOS_QUALITY)
-        val FAESA = Company(4,"FAESA", "Para a FAESA, conhecimento faz toda a diferença", CAREER_LIST.CARREIRAS_FAESA, PROJECT_LIST.PROJETOS_FAESA)
-        val VIXTEAM = Company(5, "VixTeam", "Fornecemos serviços de Fábrica de Software e soluções GRC", CAREER_LIST.CARREIRAS_VIXTEAM, PROJECT_LIST.PROJETOS_VIXTEAM)
-        val PICPAY = Company(6, "PicPay", "Tudo o que você faz é parte de sua história. Até os pagamentos.", CAREER_LIST.CARREIRAS_PICPAY, PROJECT_LIST.PROJETOS_PICPAY)
-
-        val ALL =  listOf<Company>(AUTOGLASS,INFLOR,QUALITY,FAESA,VIXTEAM,PICPAY)
 
     }
 }

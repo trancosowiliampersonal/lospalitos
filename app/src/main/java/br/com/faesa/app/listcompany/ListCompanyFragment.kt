@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
-import br.com.faesa.app.company.CompanyActivity
 import br.com.faesa.app.domain.Company
+import br.com.faesa.app.company.CompanyActivity
 import kotlinx.android.synthetic.main.fragment_company.*
 import org.koin.android.ext.android.inject
 
