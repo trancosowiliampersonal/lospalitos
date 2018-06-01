@@ -19,11 +19,11 @@ import org.koin.dsl.module.applicationContext
  */
 val mockModule = applicationContext {
     bean { CareerPresenter() as CareerContract.Presenter }
-    bean { ListCareerPresenter() as ListCareerContract.Presenter }
+    bean { ListCareerPresenter(repository = get()) as ListCareerContract.Presenter }
 
-    bean { CompanyPresenter(companyRepository = get()) as CompanyContract.Presenter }
+    bean { CompanyPresenter(repository = get()) as CompanyContract.Presenter }
     bean { ListCompanyPresenter(companyRepository = get()) as ListCompanyContract.Presenter }
 
     bean { KnowledgePresenter() as KnowledgeContract.Presenter }
-    bean { ListKnowledgePresenter() as ListKnowledgeContract.Presenter }
+    bean { ListKnowledgePresenter(repository = get()) as ListKnowledgeContract.Presenter }
 }

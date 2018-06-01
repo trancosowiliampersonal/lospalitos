@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.R
+import br.com.faesa.app.data.model.CareerSimpleModel
 import br.com.faesa.app.domain.Career
 import kotlinx.android.synthetic.main.banner.view.*
 import kotlinx.android.synthetic.main.item_career.view.*
@@ -14,8 +15,8 @@ import kotlinx.android.synthetic.main.item_career.view.*
  */
 class ListCareerAdapter(val showBanner: Boolean = true) : RecyclerView.Adapter<ListCareerAdapter.CareerHolder>() {
 
-    var onClickListener: ((Career) -> Unit)? = null
-    var itens: List<Career> = listOf()
+    var onClickListener: ((CareerSimpleModel) -> Unit)? = null
+    var itens: List<CareerSimpleModel> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -62,18 +63,18 @@ class ListCareerAdapter(val showBanner: Boolean = true) : RecyclerView.Adapter<L
 
 
     abstract class CareerHolder(view: View) : RecyclerView.ViewHolder(view) {
-        abstract fun render(careerListCareer: Career?)
+        abstract fun render(careerListCareer: CareerSimpleModel?)
     }
 
     class CareerDetailHolder(view: View) : CareerHolder(view) {
-        override fun render(careerListCareer: Career?) {
+        override fun render(careerListCareer: CareerSimpleModel?) {
             itemView.itTxtCareerName.text = careerListCareer?.name
             itemView.itTxtCareerDescription.text = careerListCareer?.description
         }
     }
 
     class CareerBannerHolder(view: View) : CareerHolder(view) {
-        override fun render(careerListCareer: Career?) {
+        override fun render(careerListCareer: CareerSimpleModel?) {
             itemView.banImgBanner.setImageResource(R.drawable.banner_career)
         }
 

@@ -1,6 +1,5 @@
 package br.com.faesa.app.data.repository.remote
 
-import br.com.faesa.app.data.model.CareerSimpleModel
 import br.com.faesa.app.data.model.KnowledgeSimpleModel
 import br.com.faesa.app.domain.ApiResponse
 
@@ -9,5 +8,6 @@ import br.com.faesa.app.domain.ApiResponse
  * @date 5/31/18
  */
 interface KnowledgeRepository {
-    fun getAll(callback:(ApiResponse<List<KnowledgeSimpleModel>>) -> Unit)
+    fun getAll(callback: (ApiResponse<List<KnowledgeSimpleModel>>) -> Unit)
+    fun getCareerKnowledges(idCareer: Long, callback: (ApiResponse<List<KnowledgeSimpleModel>>) -> Unit)
 }

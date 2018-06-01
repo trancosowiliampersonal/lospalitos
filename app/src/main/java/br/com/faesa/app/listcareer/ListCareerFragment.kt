@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.career.CareerActivity
+import br.com.faesa.app.data.model.CareerSimpleModel
 import br.com.faesa.app.domain.Career
 import kotlinx.android.synthetic.main.fragment_carrer.*
 import org.koin.android.ext.android.inject
@@ -50,7 +51,7 @@ class ListCareerFragment : BaseFragment(), ListCareerContract.View {
     override fun showLoadDialog() {}
     override fun dismissLoadDialog() {}
 
-    override fun loadList(list: List<Career>) {
+    override fun loadList(list: List<CareerSimpleModel>) {
         adapter.itens = list
     }
 

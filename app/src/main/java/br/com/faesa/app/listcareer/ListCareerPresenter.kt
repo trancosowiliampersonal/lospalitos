@@ -1,22 +1,32 @@
 package br.com.faesa.app.listcareer
 
-import br.com.faesa.app.domain.Career
+import br.com.faesa.app.data.model.CareerSimpleModel
+import br.com.faesa.app.data.repository.remote.CareerRepository
+import br.com.faesa.app.data.repository.remote.CompanyRepository
+import br.com.faesa.app.domain.ApiResponse
 
 /**
  * Created by wiliam on 5/22/18.
  */
-class ListCareerPresenter : ListCareerContract.Presenter {
+class ListCareerPresenter(val repository: CareerRepository) : ListCareerContract.Presenter {
 
     override lateinit var view: ListCareerContract.View
 
-    override fun loadList(idCompany: Long) {
+    override fun loadList(idCompany: Long?) {
         view.showLoadDialog()
-        view.loadList(getList(idCompany))
+
+        if (idCompany != null) {
+            repository.getCompanyCareers(idCompany, loadListCallback)
+        } else {
+            repository.getAll(loadListCallback)
+        }
+    }
+
+    val loadListCallback: (ApiResponse<List<CareerSimpleModel>>) -> Unit = { resp ->
+        if (resp.isSuccess) {
+            view.loadList(resp.data ?: listOf())
+        }
+
         view.dismissLoadDialog()
     }
-
-    fun getList(idCompany: Long): List<Career> {
-        return listOf()
-    }
-
 }

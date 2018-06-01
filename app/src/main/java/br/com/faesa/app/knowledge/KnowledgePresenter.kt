@@ -8,7 +8,6 @@ class KnowledgePresenter : KnowledgeContract.Presenter {
 
     override fun loadKnowledge(idKnowledge: Long) {
         view.showLoadDialog()
-        view.loadKnowledge(REPOSITORY.KNOWLEDGE.ALL.firstOrNull { it.id == idKnowledge })
         view.dismissLoadDialog()
     }
 }

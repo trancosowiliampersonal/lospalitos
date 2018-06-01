@@ -1,22 +1,32 @@
 package br.com.faesa.app.listknowledge
 
-import br.com.faesa.app.domain.Knowledge
+import br.com.faesa.app.data.model.KnowledgeSimpleModel
+import br.com.faesa.app.data.repository.remote.KnowledgeRepository
+import br.com.faesa.app.domain.ApiResponse
 
 /**
  * Created by wiliam on 5/22/18.
  */
-class ListKnowledgePresenter: ListKnowledgeContract.Presenter {
+class ListKnowledgePresenter(val repository: KnowledgeRepository): ListKnowledgeContract.Presenter {
 
     override lateinit var view: ListKnowledgeContract.View
 
-    override fun loadList(idCompany: Long) {
+    override fun loadList(idCareer: Long?) {
         view.showLoadDialog()
-        view.loadList(getList(idCompany))
-        view.dismissLoadDialog()
+
+        if (idCareer != null) {
+            repository.getCareerKnowledges(idCareer, loadListCallback)
+        } else {
+            repository.getAll(loadListCallback)
+        }
     }
 
-    fun getList(idCareer: Long): List<Knowledge> {
-        return listOf()
+    val loadListCallback: (ApiResponse<List<KnowledgeSimpleModel>>) -> Unit = { resp ->
+        if (resp.isSuccess) {
+            view.loadList(resp.data ?: listOf())
+        }
+
+        view.dismissLoadDialog()
     }
 
 }

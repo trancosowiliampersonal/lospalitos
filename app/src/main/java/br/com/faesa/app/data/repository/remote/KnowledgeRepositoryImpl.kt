@@ -1,6 +1,7 @@
 package br.com.faesa.app.data.repository.remote
 
 import br.com.faesa.app.data.model.KnowledgeSimpleModel
+import br.com.faesa.app.data.repository.remote.service.CareerService
 import br.com.faesa.app.data.repository.remote.service.KnowledgeService
 import br.com.faesa.app.domain.ApiResponse
 import retrofit2.Retrofit
@@ -11,10 +12,14 @@ import retrofit2.Retrofit
  */
 class KnowledgeRepositoryImpl(val retrofit: Retrofit) : KnowledgeRepository {
 
-    val service by lazy { retrofit.create(KnowledgeService::class.java) }
+    private val knowledgeService by lazy { retrofit.create(KnowledgeService::class.java) }
+    private val careerService by lazy { retrofit.create(CareerService::class.java) }
 
     override fun getAll(callback: (ApiResponse<List<KnowledgeSimpleModel>>) -> Unit) {
-        service.getAll().exec(callback)
+        knowledgeService.getAll().exec(callback)
     }
 
+    override fun getCareerKnowledges(idCareer: Long, callback: (ApiResponse<List<KnowledgeSimpleModel>>) -> Unit) {
+        careerService.getCareerKnowledges(idCareer).exec(callback)
+    }
 }

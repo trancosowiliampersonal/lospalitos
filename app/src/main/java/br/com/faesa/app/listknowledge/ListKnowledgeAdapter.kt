@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.R
+import br.com.faesa.app.data.model.KnowledgeSimpleModel
 import br.com.faesa.app.domain.Knowledge
 import kotlinx.android.synthetic.main.banner.view.*
 import kotlinx.android.synthetic.main.item_kwnoledge.view.*
@@ -14,8 +15,8 @@ import kotlinx.android.synthetic.main.item_kwnoledge.view.*
  */
 class ListKnowledgeAdapter(val showBanner: Boolean = true) : RecyclerView.Adapter<ListKnowledgeAdapter.KnowledgeHolder>() {
 
-    var onClickListener: ((Knowledge) -> Unit)? = null
-    var itens: List<Knowledge> = listOf()
+    var onClickListener: ((KnowledgeSimpleModel) -> Unit)? = null
+    var itens: List<KnowledgeSimpleModel> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -60,17 +61,17 @@ class ListKnowledgeAdapter(val showBanner: Boolean = true) : RecyclerView.Adapte
     }
 
     abstract class KnowledgeHolder(view: View) : RecyclerView.ViewHolder(view) {
-        abstract fun render(item: Knowledge?)
+        abstract fun render(item: KnowledgeSimpleModel?)
     }
 
     class KnowledgeDetailHolder(view: View) : KnowledgeHolder(view) {
-        override fun render(iten: Knowledge?) {
+        override fun render(iten: KnowledgeSimpleModel?) {
             itemView.itTxtKnowledgeName.text = iten?.name
         }
     }
 
     class KnowledgeBannerHolder(view: View) : KnowledgeHolder(view) {
-        override fun render(iten: Knowledge?) {
+        override fun render(iten: KnowledgeSimpleModel?) {
             itemView.banImgBanner.setImageResource(R.drawable.banner_progress)
         }
     }

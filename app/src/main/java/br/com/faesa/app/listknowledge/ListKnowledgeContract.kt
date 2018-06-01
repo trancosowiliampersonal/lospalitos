@@ -2,6 +2,7 @@ package br.com.faesa.app.listknowledge
 
 import br.com.faesa.app.BasePresenter
 import br.com.faesa.app.BaseView
+import br.com.faesa.app.data.model.KnowledgeSimpleModel
 import br.com.faesa.app.domain.Knowledge
 
 /**
@@ -10,12 +11,12 @@ import br.com.faesa.app.domain.Knowledge
 interface ListKnowledgeContract {
 
     interface Presenter : BasePresenter<View> {
-        fun loadList(idCareer: Long)
+        fun loadList(idCareer: Long?)
     }
 
     interface View : BaseView<Presenter> {
         fun showLoadDialog()
         fun dismissLoadDialog()
-        fun loadList(list: List<Knowledge>)
+        fun loadList(list: List<KnowledgeSimpleModel>)
     }
 }

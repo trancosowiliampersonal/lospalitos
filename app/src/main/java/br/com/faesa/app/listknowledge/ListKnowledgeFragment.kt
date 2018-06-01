@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
+import br.com.faesa.app.data.model.KnowledgeSimpleModel
 import br.com.faesa.app.domain.Knowledge
 import br.com.faesa.app.knowledge.KnowledgeActivity
 import kotlinx.android.synthetic.main.fragment_knowledge.*
@@ -50,7 +51,7 @@ class ListKnowledgeFragment : BaseFragment(), ListKnowledgeContract.View {
     override fun showLoadDialog() {}
     override fun dismissLoadDialog() {}
 
-    override fun loadList(list: List<Knowledge>) {
+    override fun loadList(list: List<KnowledgeSimpleModel>) {
         adapter.itens = list
     }
 
