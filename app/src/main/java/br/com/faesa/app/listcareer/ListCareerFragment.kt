@@ -22,7 +22,7 @@ class ListCareerFragment : BaseFragment(), ListCareerContract.View {
     override val presenter by inject<ListCareerContract.Presenter>()
 
     val adapter by lazy { ListCareerAdapter(idCompany <= 0) }
-    val idCompany by lazy { this.arguments.getLong(EXTRA_ID, -1) }
+    val idCompany by lazy { this.arguments!!.getLong(EXTRA_ID, -1) }
 
     companion object {
 
@@ -37,14 +37,14 @@ class ListCareerFragment : BaseFragment(), ListCareerContract.View {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view =  inflater?.inflate(R.layout.fragment_carrer, container, false)
 
         presenter.view = this
         return view
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupListView()
     }
 
@@ -60,7 +60,7 @@ class ListCareerFragment : BaseFragment(), ListCareerContract.View {
         carRecCareers?.adapter = adapter
 
         adapter.onClickListener = {
-            startActivity(CareerActivity.newIntent(context, it.id))
+            startActivity(CareerActivity.newIntent(context!!, it.id))
         }
 
         presenter.loadList(idCompany)

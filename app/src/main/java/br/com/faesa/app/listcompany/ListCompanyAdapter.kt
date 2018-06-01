@@ -26,7 +26,7 @@ class ListCompanyAdapter : RecyclerView.Adapter<ListCompanyAdapter.CompanyHolder
         const val TYPE_DETAIL = 1
     }
 
-    override fun onBindViewHolder(holder: CompanyHolder?, position: Int) {
+    override fun onBindViewHolder(holder: CompanyHolder, position: Int) {
         holder?.render(itens.elementAtOrNull(position - 1))
 
         (holder as? CompanyDetailHolder)?.itemView?.setOnClickListener {
@@ -38,7 +38,7 @@ class ListCompanyAdapter : RecyclerView.Adapter<ListCompanyAdapter.CompanyHolder
         return itens.size + 1
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CompanyHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CompanyHolder {
 
         val holder = when (viewType) {
             TYPE_BANNER -> CompanyBannerHolder(LayoutInflater.from(parent?.context).inflate(R.layout.banner, parent, false))

@@ -27,7 +27,7 @@ class ListCareerAdapter(val showBanner: Boolean = true) : RecyclerView.Adapter<L
         const val TYPE_DETAIL = 1
     }
 
-    override fun onBindViewHolder(holder: CareerHolder?, position: Int) {
+    override fun onBindViewHolder(holder: CareerHolder, position: Int) {
         val pos = if (showBanner) position - 1 else position
         holder?.render(itens.elementAtOrNull(pos))
 
@@ -40,7 +40,7 @@ class ListCareerAdapter(val showBanner: Boolean = true) : RecyclerView.Adapter<L
         return if (showBanner) itens.size + 1 else itens.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CareerHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CareerHolder {
 
         val holder = when (viewType) {
             TYPE_BANNER -> CareerBannerHolder(LayoutInflater.from(parent?.context).inflate(R.layout.banner, parent, false))

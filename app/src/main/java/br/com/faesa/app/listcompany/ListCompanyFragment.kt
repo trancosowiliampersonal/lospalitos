@@ -28,14 +28,14 @@ class ListCompanyFragment : BaseFragment(), ListCompanyContract.View {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater?.inflate(R.layout.fragment_company, container, false)
 
         presenter.view = this
         return view
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupListView()
     }
 
@@ -51,7 +51,7 @@ class ListCompanyFragment : BaseFragment(), ListCompanyContract.View {
         fcomRecCompanys.adapter = adapter
 
         adapter?.onClickListener = {
-            startActivity(CompanyActivity.newIntent(context, it.id))
+            startActivity(CompanyActivity.newIntent(context!!, it.id))
         }
 
         presenter.loadList()

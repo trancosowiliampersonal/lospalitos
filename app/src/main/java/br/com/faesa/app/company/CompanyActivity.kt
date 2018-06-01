@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.faesa.app.R
+import br.com.faesa.app.company.epoxy.CompanyController
 import br.com.faesa.app.data.model.CareerSimpleModel
 import br.com.faesa.app.data.model.CompanySimpleModel
 import br.com.faesa.app.data.model.CompanyWithCareersModel
@@ -43,6 +44,10 @@ class CompanyActivity : AppCompatActivity(), CompanyContract.View {
         comLblCompany.text = company?.name
         comTxtDescription.text = company?.description
 
-        supportFragmentManager.beginTransaction().add(R.id.comFlFragment, ListCareerFragment.newInstance(company?.id)).commit()
+        val controller = CompanyController()
+        comRecCareers.setController(controller)
+
+        controller.setData(company.careers)
+
     }
 }

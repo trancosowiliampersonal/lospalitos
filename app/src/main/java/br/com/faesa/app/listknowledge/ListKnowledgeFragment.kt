@@ -22,7 +22,7 @@ class ListKnowledgeFragment : BaseFragment(), ListKnowledgeContract.View {
     override val presenter by inject<ListKnowledgeContract.Presenter>()
 
     val adapter by lazy { ListKnowledgeAdapter(idCareer <= 0) }
-    val idCareer by lazy { this.arguments.getLong(EXTRA_ID, -1) }
+    val idCareer by lazy { this.arguments!!.getLong(EXTRA_ID, -1) }
 
     companion object {
 
@@ -37,14 +37,14 @@ class ListKnowledgeFragment : BaseFragment(), ListKnowledgeContract.View {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater?.inflate(R.layout.fragment_knowledge, container, false)
         presenter.view = this
 
         return view
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupListView()
     }
 
@@ -60,7 +60,7 @@ class ListKnowledgeFragment : BaseFragment(), ListKnowledgeContract.View {
         fknowRecKnowledges?.adapter = adapter
 
         adapter.onClickListener = {
-            startActivity(KnowledgeActivity.newIntent(context, it.id))
+            startActivity(KnowledgeActivity.newIntent(context!!, it.id))
         }
 
         presenter.loadList(idCareer)

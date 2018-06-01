@@ -27,7 +27,7 @@ class ListKnowledgeAdapter(val showBanner: Boolean = true) : RecyclerView.Adapte
         const val TYPE_DETAIL = 1
     }
 
-    override fun onBindViewHolder(holder: KnowledgeHolder?, position: Int) {
+    override fun onBindViewHolder(holder: KnowledgeHolder, position: Int) {
         val pos = if(showBanner) position - 1 else position
         holder?.render(itens.elementAtOrNull(pos))
 
@@ -36,7 +36,7 @@ class ListKnowledgeAdapter(val showBanner: Boolean = true) : RecyclerView.Adapte
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): KnowledgeHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KnowledgeHolder {
         val holder = when(viewType) {
             TYPE_BANNER -> KnowledgeBannerHolder(LayoutInflater.from(parent?.context).inflate(R.layout.banner, parent, false))
             else -> KnowledgeDetailHolder(LayoutInflater.from(parent?.context).inflate(R.layout.item_kwnoledge, parent, false))
