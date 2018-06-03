@@ -1,6 +1,7 @@
 package br.com.faesa.app.data.repository.remote
 
 import br.com.faesa.app.data.model.CareerSimpleModel
+import br.com.faesa.app.data.model.CareerWithKnowledgesModel
 import br.com.faesa.app.data.model.KnowledgeSimpleModel
 import br.com.faesa.app.domain.ApiResponse
 
@@ -10,6 +11,7 @@ import br.com.faesa.app.domain.ApiResponse
  */
 interface CareerRepository {
     fun getAll(callback:(ApiResponse<List<CareerSimpleModel>>) -> Unit)
+    fun get(idCareer: Long, callback: (ApiResponse<CareerWithKnowledgesModel>) -> Unit)
     fun getCompanyCareers(idCompany: Long, callback: (ApiResponse<List<CareerSimpleModel>>) -> Unit)
     fun getCareerKnowledges(idCareer:Long, callback: (ApiResponse<List<KnowledgeSimpleModel>>) -> Unit)
 }
