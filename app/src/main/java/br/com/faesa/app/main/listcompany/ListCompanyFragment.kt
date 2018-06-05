@@ -1,4 +1,4 @@
-package br.com.faesa.app.listcompany
+package br.com.faesa.app.main.listcompany
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -9,6 +9,7 @@ import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.company.CompanyActivity
 import br.com.faesa.app.data.model.CompanySimpleModel
+import br.com.faesa.app.main.epoxy.CompanyController
 import kotlinx.android.synthetic.main.fragment_company.*
 import org.koin.android.ext.android.inject
 
@@ -20,7 +21,7 @@ class ListCompanyFragment : BaseFragment(), ListCompanyContract.View {
     override val title: String = "Empresas"
     override val presenter by inject<ListCompanyContract.Presenter>()
 
-    val adapter: ListCompanyAdapter by lazy { ListCompanyAdapter() }
+    val controller by lazy { CompanyController() }
 
     companion object {
         fun newInstance(): ListCompanyFragment {
@@ -43,14 +44,13 @@ class ListCompanyFragment : BaseFragment(), ListCompanyContract.View {
     override fun dismissLoadDialog() {}
 
     override fun loadList(list: List<CompanySimpleModel>) {
-        adapter.itens = list
+        controller.setData(list)
     }
 
     fun setupListView() {
-        fcomRecCompanys.layoutManager = LinearLayoutManager(context)
-        fcomRecCompanys.adapter = adapter
+        fcomRecCompanys.setController(controller)
 
-        adapter?.onClickListener = {
+        controller.listener = {
             startActivity(CompanyActivity.newIntent(context!!, it.id))
         }
 

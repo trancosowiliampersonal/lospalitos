@@ -6,12 +6,12 @@ import br.com.faesa.app.company.CompanyContract
 import br.com.faesa.app.company.CompanyPresenter
 import br.com.faesa.app.knowledge.KnowledgeContract
 import br.com.faesa.app.knowledge.KnowledgePresenter
-import br.com.faesa.app.listcareer.ListCareerContract
-import br.com.faesa.app.listcareer.ListCareerPresenter
-import br.com.faesa.app.listcompany.ListCompanyContract
-import br.com.faesa.app.listcompany.ListCompanyPresenter
-import br.com.faesa.app.listknowledge.ListKnowledgeContract
-import br.com.faesa.app.listknowledge.ListKnowledgePresenter
+import br.com.faesa.app.main.listcareer.ListCareerContract
+import br.com.faesa.app.main.listcareer.ListCareerPresenter
+import br.com.faesa.app.main.listcompany.ListCompanyContract
+import br.com.faesa.app.main.listcompany.ListCompanyPresenter
+import br.com.faesa.app.main.listknowledge.ListKnowledgeContract
+import br.com.faesa.app.main.listknowledge.ListKnowledgePresenter
 import org.koin.dsl.module.applicationContext
 
 /**

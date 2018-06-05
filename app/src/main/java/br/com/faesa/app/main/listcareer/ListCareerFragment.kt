@@ -1,4 +1,4 @@
-package br.com.faesa.app.listcareer
+package br.com.faesa.app.main.listcareer
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -9,7 +9,6 @@ import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.career.CareerActivity
 import br.com.faesa.app.data.model.CareerSimpleModel
-import br.com.faesa.app.domain.Career
 import kotlinx.android.synthetic.main.fragment_carrer.*
 import org.koin.android.ext.android.inject
 

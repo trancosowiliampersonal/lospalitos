@@ -3,9 +3,9 @@ package br.com.faesa.app.main
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.faesa.app.R
-import br.com.faesa.app.listcareer.ListCareerFragment
-import br.com.faesa.app.listcompany.ListCompanyFragment
-import br.com.faesa.app.listknowledge.ListKnowledgeFragment
+import br.com.faesa.app.main.listcareer.ListCareerFragment
+import br.com.faesa.app.main.listcompany.ListCompanyFragment
+import br.com.faesa.app.main.listknowledge.ListKnowledgeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){

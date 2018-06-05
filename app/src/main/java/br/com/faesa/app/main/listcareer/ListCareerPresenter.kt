@@ -1,8 +1,7 @@
-package br.com.faesa.app.listcareer
+package br.com.faesa.app.main.listcareer
 
 import br.com.faesa.app.data.model.CareerSimpleModel
 import br.com.faesa.app.data.repository.remote.CareerRepository
-import br.com.faesa.app.data.repository.remote.CompanyRepository
 import br.com.faesa.app.domain.ApiResponse
 
 /**

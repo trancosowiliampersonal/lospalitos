@@ -1,4 +1,4 @@
-package br.com.faesa.app.listknowledge
+package br.com.faesa.app.main.listknowledge
 
 import br.com.faesa.app.data.model.KnowledgeSimpleModel
 import br.com.faesa.app.data.repository.remote.KnowledgeRepository

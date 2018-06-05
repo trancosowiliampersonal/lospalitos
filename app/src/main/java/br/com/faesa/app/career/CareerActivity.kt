@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.faesa.app.R
 import br.com.faesa.app.domain.Career
-import br.com.faesa.app.listknowledge.ListKnowledgeFragment
+import br.com.faesa.app.main.listknowledge.ListKnowledgeFragment
 import kotlinx.android.synthetic.main.activity_career.*
 import org.koin.android.ext.android.inject
 

@@ -5,11 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.faesa.app.R
-import br.com.faesa.app.company.epoxy.CompanyController
-import br.com.faesa.app.data.model.CareerSimpleModel
-import br.com.faesa.app.data.model.CompanySimpleModel
+import br.com.faesa.app.company.epoxy.CareerController
 import br.com.faesa.app.data.model.CompanyWithCareersModel
-import br.com.faesa.app.listcareer.ListCareerFragment
 import kotlinx.android.synthetic.main.activity_company.*
 import org.koin.android.ext.android.inject
 
@@ -17,6 +14,7 @@ class CompanyActivity : AppCompatActivity(), CompanyContract.View {
     override val presenter by inject<CompanyContract.Presenter>()
 
     val idCompany by lazy { intent.getLongExtra(EXTRA_ID_COMPANY, -1) }
+    val controller by lazy { CareerController() }
 
     companion object {
         const val EXTRA_ID_COMPANY = "EXTRA_ID_COMPANY"
@@ -44,9 +42,7 @@ class CompanyActivity : AppCompatActivity(), CompanyContract.View {
         comLblCompany.text = company?.name
         comTxtDescription.text = company?.description
 
-        val controller = CompanyController()
         comRecCareers.setController(controller)
-
         controller.setData(company.careers)
 
     }

@@ -1,4 +1,4 @@
-package br.com.faesa.app.listcompany
+package br.com.faesa.app.main.listcompany
 
 import br.com.faesa.app.data.repository.remote.CompanyRepository
 

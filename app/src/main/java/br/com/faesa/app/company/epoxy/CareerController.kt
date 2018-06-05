@@ -7,12 +7,12 @@ import com.airbnb.epoxy.TypedEpoxyController
  * @author wiliam
  * @date 5/31/18
  */
-class CompanyController : TypedEpoxyController<List<CareerSimpleModel>>() {
+class CareerController : TypedEpoxyController<List<CareerSimpleModel>>() {
 
     override fun buildModels(data: List<CareerSimpleModel>?) {
 
         data?.forEach {
-            CompanyModel_()
+            CareerModel_()
                     .id(it.id)
                     .name(it.name)
                     .description(it.description)

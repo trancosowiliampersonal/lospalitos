@@ -1,4 +1,4 @@
-package br.com.faesa.app.listcareer
+package br.com.faesa.app.main.listcareer
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.R
 import br.com.faesa.app.data.model.CareerSimpleModel
-import br.com.faesa.app.domain.Career
 import kotlinx.android.synthetic.main.banner.view.*
 import kotlinx.android.synthetic.main.item_career.view.*
 
