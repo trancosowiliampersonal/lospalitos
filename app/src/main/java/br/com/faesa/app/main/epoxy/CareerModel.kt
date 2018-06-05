@@ -8,12 +8,13 @@ import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
 
+
 /**
  * @author wiliam
- * @date 6/3/18
+ * @date 6/5/18
  */
-@EpoxyModelClass(layout = R.layout.item_company)
-abstract class CompanyModel : EpoxyModelWithHolder<CompanyModel.Holder>() {
+@EpoxyModelClass(layout = R.layout.item_career)
+abstract class CareerModel : EpoxyModelWithHolder<CareerModel.Holder>() {
 
     @EpoxyAttribute
     var name: String? = null
@@ -40,8 +41,8 @@ abstract class CompanyModel : EpoxyModelWithHolder<CompanyModel.Holder>() {
 
         override fun bindView(itemView: View?) {
             this.itemView = itemView
-            txtName = itemView?.findViewById(R.id.itTxtCompanyName)
-            txtDescription = itemView?.findViewById(R.id.itTxtCompanyDescription)
+            txtName = itemView?.findViewById(R.id.itTxtCareerName)
+            txtDescription = itemView?.findViewById(R.id.itTxtCareerDescription)
         }
     }
 

@@ -15,6 +15,6 @@ interface ListCompanyContract {
     interface View : BaseView<Presenter> {
         fun showLoadDialog()
         fun dismissLoadDialog()
-        fun loadList(list:List<CompanySimpleModel>)
+        fun loadList(list: List<CompanySimpleModel>)
     }
 }

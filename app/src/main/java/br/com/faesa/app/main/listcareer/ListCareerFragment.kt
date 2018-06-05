@@ -9,6 +9,7 @@ import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.career.CareerActivity
 import br.com.faesa.app.data.model.CareerSimpleModel
+import br.com.faesa.app.main.epoxy.CareerController
 import kotlinx.android.synthetic.main.fragment_carrer.*
 import org.koin.android.ext.android.inject
 
@@ -20,19 +21,11 @@ class ListCareerFragment : BaseFragment(), ListCareerContract.View {
     override val title: String = "Carreiras"
     override val presenter by inject<ListCareerContract.Presenter>()
 
-    val adapter by lazy { ListCareerAdapter(idCompany <= 0) }
-    val idCompany by lazy { this.arguments!!.getLong(EXTRA_ID, -1) }
+    val controller by lazy { CareerController() }
 
     companion object {
-
-        const val EXTRA_ID = "EXTRA_ID"
-
-        fun newInstance(id: Long? = -1): ListCareerFragment {
-            return ListCareerFragment().apply {
-                arguments = Bundle().apply {
-                    putLong(EXTRA_ID, id ?: -1)
-                }
-            }
+        fun newInstance(): ListCareerFragment {
+            return ListCareerFragment()
         }
     }
 
@@ -51,17 +44,16 @@ class ListCareerFragment : BaseFragment(), ListCareerContract.View {
     override fun dismissLoadDialog() {}
 
     override fun loadList(list: List<CareerSimpleModel>) {
-        adapter.itens = list
+        controller.setData(list)
     }
 
     fun setupListView() {
-        carRecCareers?.layoutManager = LinearLayoutManager(context)
-        carRecCareers?.adapter = adapter
+        carRecCareers?.setController(controller)
 
-        adapter.onClickListener = {
+        controller.listener = {
             startActivity(CareerActivity.newIntent(context!!, it.id))
         }
 
-        presenter.loadList(idCompany)
+        presenter.loadList()
     }
 }

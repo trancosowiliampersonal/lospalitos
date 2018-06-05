@@ -9,7 +9,7 @@ import br.com.faesa.app.data.model.CareerSimpleModel
  */
 interface ListCareerContract {
     interface Presenter : BasePresenter<View> {
-        fun loadList(idCompany: Long?)
+        fun loadList()
     }
 
     interface View : BaseView<Presenter> {
