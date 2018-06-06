@@ -9,12 +9,19 @@ import com.airbnb.epoxy.TypedEpoxyController
  */
 class KnowledgeController : TypedEpoxyController<List<KnowledgeSimpleModel>>() {
 
+    var listener:((KnowledgeSimpleModel) -> Unit)? = null
+
     override fun buildModels(data: List<KnowledgeSimpleModel>?) {
 
         data?.forEach {
             KnowledgeModel_()
                     .id(it.id)
                     .name(it.name)
+                    .listener(object : KnowledgeModel.OnClickListener {
+                        override fun onClick() {
+                            listener?.invoke(it)
+                        }
+                    })
                     .addTo(this)
         }
     }

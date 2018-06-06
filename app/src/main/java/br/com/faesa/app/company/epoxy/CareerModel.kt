@@ -21,19 +21,31 @@ abstract class CareerModel : EpoxyModelWithHolder<CareerModel.Holder>() {
     @EpoxyAttribute
     var description: String? = null
 
+    @EpoxyAttribute(hash = false)
+    var listener: OnClickListener? = null
+
     override fun bind(holder: Holder) {
         holder.txtName?.text = name
         holder.txtDescription?.text = description
+        holder.itemView?.setOnClickListener {
+            listener?.onClick()
+        }
     }
 
     class Holder : EpoxyHolder() {
 
+        var itemView: View? = null
         var txtName: AppCompatTextView? = null
         var txtDescription: AppCompatTextView? = null
 
         override fun bindView(itemView: View?) {
+            this.itemView = itemView
             txtName = itemView?.findViewById(R.id.itTxtCareerName)
             txtDescription = itemView?.findViewById(R.id.itTxtCareerDescription)
         }
+    }
+
+    interface OnClickListener {
+        fun onClick()
     }
 }

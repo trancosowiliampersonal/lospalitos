@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import br.com.faesa.app.R
+import br.com.faesa.app.career.CareerActivity
 import br.com.faesa.app.company.epoxy.CareerController
 import br.com.faesa.app.data.model.CompanyWithCareersModel
 import kotlinx.android.synthetic.main.activity_company.*
@@ -43,6 +45,9 @@ class CompanyActivity : AppCompatActivity(), CompanyContract.View {
 
         comRecCareers.setController(controller)
         controller.setData(company.careers)
+        controller.listener = {
+            startActivity(CareerActivity.newIntent(this, it.id))
+        }
 
     }
 }

@@ -8,6 +8,7 @@ import br.com.faesa.app.R
 import br.com.faesa.app.career.epoxy.KnowledgeController
 import br.com.faesa.app.data.model.CareerWithKnowledgesModel
 import br.com.faesa.app.domain.Career
+import br.com.faesa.app.knowledge.KnowledgeActivity
 import br.com.faesa.app.main.listknowledge.ListKnowledgeFragment
 import kotlinx.android.synthetic.main.activity_career.*
 import org.koin.android.ext.android.inject
@@ -45,6 +46,9 @@ class CareerActivity : AppCompatActivity(), CareerContract.View {
 
         carRecKnowledges.setController(controller)
         controller.setData(career?.knowledges)
+        controller.listener = {
+            startActivity(KnowledgeActivity.newIntent(this, it.id))
+        }
 
     }
 }

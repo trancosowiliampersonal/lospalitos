@@ -9,6 +9,8 @@ import com.airbnb.epoxy.TypedEpoxyController
  */
 class CareerController : TypedEpoxyController<List<CareerSimpleModel>>() {
 
+    var listener:((CareerSimpleModel) -> Unit)? = null
+
     override fun buildModels(data: List<CareerSimpleModel>?) {
 
         data?.forEach {
@@ -16,6 +18,11 @@ class CareerController : TypedEpoxyController<List<CareerSimpleModel>>() {
                     .id(it.id)
                     .name(it.name)
                     .description(it.description)
+                    .listener(object : CareerModel.OnClickListener {
+                        override fun onClick() {
+                            listener?.invoke(it)
+                        }
+                    })
                     .addTo(this)
         }
     }

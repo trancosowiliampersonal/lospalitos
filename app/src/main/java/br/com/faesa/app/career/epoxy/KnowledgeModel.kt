@@ -16,19 +16,29 @@ import com.airbnb.epoxy.EpoxyModelWithHolder
 abstract class KnowledgeModel : EpoxyModelWithHolder<KnowledgeModel.Holder>() {
 
     @EpoxyAttribute
-    var name:String? = null
+    var name: String? = null
+
+    @EpoxyAttribute(hash = false)
+    var listener: OnClickListener? = null
 
     override fun bind(holder: Holder) {
         holder.txtName?.text = name
+        holder.itemView?.setOnClickListener {
+            listener?.onClick()
+        }
     }
 
-    class Holder: EpoxyHolder() {
+    class Holder : EpoxyHolder() {
+        var itemView: View? = null
         var txtName: AppCompatTextView? = null
 
         override fun bindView(itemView: View?) {
+            this.itemView = itemView
             txtName = itemView?.findViewById(R.id.itTxtKnowledgeName)
         }
-
     }
 
+    interface OnClickListener {
+        fun onClick()
+    }
 }
