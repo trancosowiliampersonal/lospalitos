@@ -11,22 +11,15 @@ class ListKnowledgePresenter(val repository: KnowledgeRepository): ListKnowledge
 
     override lateinit var view: ListKnowledgeContract.View
 
-    override fun loadList(idCareer: Long?) {
+    override fun loadList() {
         view.showLoadDialog()
 
-        if (idCareer != null) {
-            repository.getCareerKnowledges(idCareer, loadListCallback)
-        } else {
-            repository.getAll(loadListCallback)
+        repository.getAll { apiResponse ->
+            if(apiResponse.isSuccess) {
+                view.loadList(apiResponse.data ?: listOf())
+            }
+
+            view.dismissLoadDialog()
         }
     }
-
-    val loadListCallback: (ApiResponse<List<KnowledgeSimpleModel>>) -> Unit = { resp ->
-        if (resp.isSuccess) {
-            view.loadList(resp.data ?: listOf())
-        }
-
-        view.dismissLoadDialog()
-    }
-
 }

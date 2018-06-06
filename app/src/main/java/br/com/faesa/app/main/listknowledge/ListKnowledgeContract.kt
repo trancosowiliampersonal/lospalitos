@@ -10,7 +10,7 @@ import br.com.faesa.app.data.model.KnowledgeSimpleModel
 interface ListKnowledgeContract {
 
     interface Presenter : BasePresenter<View> {
-        fun loadList(idCareer: Long?)
+        fun loadList()
     }
 
     interface View : BaseView<Presenter> {

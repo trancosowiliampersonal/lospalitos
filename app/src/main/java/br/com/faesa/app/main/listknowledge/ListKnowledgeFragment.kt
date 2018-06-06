@@ -9,6 +9,7 @@ import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.data.model.KnowledgeSimpleModel
 import br.com.faesa.app.knowledge.KnowledgeActivity
+import br.com.faesa.app.main.epoxy.KnowledgeController
 import kotlinx.android.synthetic.main.fragment_knowledge.*
 import org.koin.android.ext.android.inject
 
@@ -20,26 +21,18 @@ class ListKnowledgeFragment : BaseFragment(), ListKnowledgeContract.View {
     override val title: String = "Conhecimentos"
     override val presenter by inject<ListKnowledgeContract.Presenter>()
 
-    val adapter by lazy { ListKnowledgeAdapter(idCareer <= 0) }
-    val idCareer by lazy { this.arguments!!.getLong(EXTRA_ID, -1) }
+    val controller by lazy { KnowledgeController() }
 
     companion object {
-
-        const val EXTRA_ID = "EXTRA_ID"
-
-        fun newInstance(id: Long? = -1): ListKnowledgeFragment {
-            return ListKnowledgeFragment().apply {
-                arguments = Bundle().apply {
-                    putLong(EXTRA_ID, id ?: -1)
-                }
-            }
+        fun newInstance(): ListKnowledgeFragment {
+            return ListKnowledgeFragment()
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater?.inflate(R.layout.fragment_knowledge, container, false)
-        presenter.view = this
 
+        presenter.view = this
         return view
     }
 
@@ -51,17 +44,16 @@ class ListKnowledgeFragment : BaseFragment(), ListKnowledgeContract.View {
     override fun dismissLoadDialog() {}
 
     override fun loadList(list: List<KnowledgeSimpleModel>) {
-        adapter.itens = list
+        controller.setData(list)
     }
 
     fun setupListView() {
-        fknowRecKnowledges?.layoutManager = LinearLayoutManager(context)
-        fknowRecKnowledges?.adapter = adapter
+        fknowRecKnowledges.setController(controller)
 
-        adapter.onClickListener = {
+        controller.listener = {
             startActivity(KnowledgeActivity.newIntent(context!!, it.id))
         }
 
-        presenter.loadList(idCareer)
+        presenter.loadList()
     }
 }

@@ -18,7 +18,6 @@ import retrofit2.converter.gson.GsonConverterFactory
  * @author wiliam
  * @date 5/30/18
  */
-
 private const val BASE_URL = "BASE_URL"
 private const val READ_TIME_OUT = "READ_TIME_OUT"
 private const val CONNECT_TIME_OUT = "CONNECT_TIME_OUT"
