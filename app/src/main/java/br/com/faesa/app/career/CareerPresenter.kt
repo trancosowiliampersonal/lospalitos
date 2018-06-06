@@ -17,7 +17,6 @@ class CareerPresenter(val repository: CareerRepository) : CareerContract.Present
             }
 
             view.dismissLoadDialog()
-
         }
     }
 }

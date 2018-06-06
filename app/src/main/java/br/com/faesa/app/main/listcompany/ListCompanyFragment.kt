@@ -8,7 +8,10 @@ import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.company.CompanyActivity
 import br.com.faesa.app.data.model.CompanySimple
+import br.com.faesa.app.ext.dismiss
+import br.com.faesa.app.ext.show
 import br.com.faesa.app.main.epoxy.CompanyController
+import br.com.faesa.app.view.dialog.LoadDialog
 import kotlinx.android.synthetic.main.fragment_company.*
 import org.koin.android.ext.android.inject
 
@@ -26,6 +29,7 @@ class ListCompanyFragment : BaseFragment(), ListCompanyContract.View {
         fun newInstance(): ListCompanyFragment {
             return ListCompanyFragment()
         }
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,13 +38,19 @@ class ListCompanyFragment : BaseFragment(), ListCompanyContract.View {
         presenter.view = this
         return view
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupListView()
     }
 
-    override fun showLoadDialog() {}
-    override fun dismissLoadDialog() {}
+    override fun showLoadDialog() {
+        fcomProg.show()
+        fcomRecCompanys.dismiss()
+    }
+
+    override fun dismissLoadDialog() {
+        fcomProg.dismiss()
+        fcomRecCompanys.show()
+    }
 
     override fun loadList(list: List<CompanySimple>) {
         controller.setData(list)

@@ -8,7 +8,7 @@ import br.com.faesa.app.main.listcompany.ListCompanyFragment
 import br.com.faesa.app.main.listknowledge.ListKnowledgeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     val adapter by lazy { createAdapter() }
 

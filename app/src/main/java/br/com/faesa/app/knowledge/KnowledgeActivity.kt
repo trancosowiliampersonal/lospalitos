@@ -8,11 +8,11 @@ import android.text.Html
 import android.text.method.LinkMovementMethod
 import br.com.faesa.app.R
 import br.com.faesa.app.domain.Knowledge
+import br.com.faesa.app.view.dialog.LoadDialog
 import kotlinx.android.synthetic.main.activity_knowledge.*
 import org.koin.android.ext.android.inject
 
 class KnowledgeActivity : AppCompatActivity(), KnowledgeContract.View {
-
     override val presenter by inject<KnowledgeContract.Presenter>()
 
     val idKnowledge by lazy { intent.getLongExtra(EXTRA_ID, -1) }
@@ -36,8 +36,11 @@ class KnowledgeActivity : AppCompatActivity(), KnowledgeContract.View {
         presenter.loadKnowledge(idKnowledge)
     }
 
-    override fun showLoadDialog() {}
-    override fun dismissLoadDialog() {}
+    override fun showLoadDialog() {
+    }
+
+    override fun dismissLoadDialog() {
+    }
 
     override fun loadKnowledge(knowledge: Knowledge?) {
         knowLblKnowledge.text = knowledge?.name

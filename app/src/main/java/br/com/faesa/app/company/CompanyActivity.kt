@@ -8,6 +8,9 @@ import br.com.faesa.app.R
 import br.com.faesa.app.career.CareerActivity
 import br.com.faesa.app.company.epoxy.CareerController
 import br.com.faesa.app.data.model.CompanyWithCareers
+import br.com.faesa.app.ext.dismiss
+import br.com.faesa.app.ext.show
+import br.com.faesa.app.view.dialog.LoadDialog
 import kotlinx.android.synthetic.main.activity_company.*
 import org.koin.android.ext.android.inject
 
@@ -35,8 +38,15 @@ class CompanyActivity : AppCompatActivity(), CompanyContract.View {
         presenter.loadCompany(idCompany)
     }
 
-    override fun showLoadDialog() {}
-    override fun dismissLoadDialog() {}
+    override fun showLoadDialog() {
+        comProg.show()
+        comRecCareers.dismiss()
+    }
+
+    override fun dismissLoadDialog() {
+        comProg.dismiss()
+        comRecCareers.show()
+    }
 
     override fun loadCompany(company: CompanyWithCareers) {
         comLblCompany.text = company?.name

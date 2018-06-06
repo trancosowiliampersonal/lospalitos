@@ -4,15 +4,21 @@ import android.app.ProgressDialog
 import android.content.Context
 import br.com.faesa.app.R
 
-class LoadDialog(context: Context) {
+class LoadDialog(val context: Context,
+                 val message: String = "Carregando",
+                 val title: String = "",
+                 val isIndeterminate: Boolean = true,
+                 val cancelable: Boolean = false) {
 
-    val progressDialog = ProgressDialog(context, R.style.AppCompatAlertDialogStyle)
+    val progressDialog:ProgressDialog
 
     init {
-        progressDialog.setTitle("")
-        progressDialog.setMessage("Carregando")
-        progressDialog.isIndeterminate = true
-        progressDialog.setCancelable(false)
+        progressDialog = ProgressDialog(context, R.style.AppCompatAlertDialogStyle).apply {
+            setMessage(message)
+            setTitle(title)
+            isIndeterminate = isIndeterminate
+            setCancelable(cancelable)
+        }
     }
 
     fun show() {
@@ -20,8 +26,6 @@ class LoadDialog(context: Context) {
     }
 
     fun dismiss() {
-        if(progressDialog.isShowing) progressDialog.dismiss()
+        if (progressDialog.isShowing) progressDialog.dismiss()
     }
-
-
 }
