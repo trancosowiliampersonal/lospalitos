@@ -15,37 +15,45 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 /**
-* @author wiliam
-* @date 5/30/18
-*/
+ * @author wiliam
+ * @date 5/30/18
+ */
 
-const val BASE_URL = "http://192.168.0.67:4567/api/"
+private const val BASE_URL = "BASE_URL"
+private const val READ_TIME_OUT = "READ_TIME_OUT"
+private const val CONNECT_TIME_OUT = "CONNECT_TIME_OUT"
+private const val HEADER_INTERCEPTOR = "HEADER_INTERCEPTOR"
+private const val LOGGER_INTERCEPTOR = "LOGGER_INTERCEPTOR"
+
 
 val retrofitClientModule = applicationContext {
 
-    bean{
+    bean(BASE_URL) { "http://192.168.0.106:4567/api/" }
+    bean(READ_TIME_OUT) { 180 }
+    bean(CONNECT_TIME_OUT) { 180 }
+
+    factory {
         Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory( /*Converter.Factory*/ get())
+                .baseUrl(get<String>(BASE_URL))
+                .addConverterFactory(/*Converter.Factory*/ get())
                 .client(/* OkHttpClient */ get())
                 .build()
     }
 
-    factory { GsonBuilder() .create() as Gson }
+    bean { GsonBuilder().create() as Gson }
 
-    factory {
-
+    bean {
         OkHttpClient.Builder()
-                .readTimeout(180, TimeUnit.SECONDS)
-                .connectTimeout(180, TimeUnit.SECONDS)
-                .addInterceptor( get("loggerInterceptor") )
-                .addInterceptor( get("headerInterceptor") )
+                .readTimeout(get(READ_TIME_OUT), TimeUnit.SECONDS)
+                .connectTimeout(get(CONNECT_TIME_OUT), TimeUnit.SECONDS)
+                .addInterceptor(get(HEADER_INTERCEPTOR))
+                .addInterceptor(get(LOGGER_INTERCEPTOR))
                 .build() as OkHttpClient
     }
 
     bean { GsonConverterFactory.create(/* Gson */ get()) as Converter.Factory }
 
-    factory("headerInterceptor") {
+    bean(HEADER_INTERCEPTOR) {
         Interceptor { chain ->
             val requestBuilder = chain?.request()?.newBuilder()
             requestBuilder?.header("Content-Type", "application/json")
@@ -53,9 +61,9 @@ val retrofitClientModule = applicationContext {
         }
     }
 
-    factory("loggerInterceptor") {
-        val logging = HttpLoggingInterceptor()
-        logging.level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-        logging
+    bean(LOGGER_INTERCEPTOR) {
+        HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        }
     }
 }

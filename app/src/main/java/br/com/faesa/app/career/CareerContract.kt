@@ -2,6 +2,7 @@ package br.com.faesa.app.career
 
 import br.com.faesa.app.BasePresenter
 import br.com.faesa.app.BaseView
+import br.com.faesa.app.data.model.CareerWithKnowledgesModel
 import br.com.faesa.app.domain.Career
 
 /**
@@ -15,6 +16,6 @@ interface CareerContract{
     interface View : BaseView<Presenter> {
         fun showLoadDialog()
         fun dismissLoadDialog()
-        fun loadCareer(career: Career?)
+        fun loadCareer(career: CareerWithKnowledgesModel?)
     }
 }

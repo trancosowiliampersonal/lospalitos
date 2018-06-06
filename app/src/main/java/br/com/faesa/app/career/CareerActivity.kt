@@ -5,16 +5,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.faesa.app.R
+import br.com.faesa.app.career.epoxy.KnowledgeController
+import br.com.faesa.app.data.model.CareerWithKnowledgesModel
 import br.com.faesa.app.domain.Career
 import br.com.faesa.app.main.listknowledge.ListKnowledgeFragment
 import kotlinx.android.synthetic.main.activity_career.*
 import org.koin.android.ext.android.inject
 
 class CareerActivity : AppCompatActivity(), CareerContract.View {
-
     override val presenter by inject<CareerContract.Presenter>()
 
     val idCareer by lazy { intent.getLongExtra(EXTRA_ID, -1) }
+    val controller by lazy { KnowledgeController() }
 
     companion object {
         const val EXTRA_ID = "EXTRA_ID"
@@ -37,10 +39,12 @@ class CareerActivity : AppCompatActivity(), CareerContract.View {
     override fun showLoadDialog() {}
     override fun dismissLoadDialog() {}
 
-    override fun loadCareer(career: Career?) {
+    override fun loadCareer(career: CareerWithKnowledgesModel?) {
         carLblCareer.text = career?.name
         carTxtDescription.text = career?.description
 
-        supportFragmentManager.beginTransaction().add(R.id.carFlFragment, ListKnowledgeFragment.newInstance(career?.id)).commit()
+        carRecKnowledges.setController(controller)
+        controller.setData(career?.knowledges)
+
     }
 }

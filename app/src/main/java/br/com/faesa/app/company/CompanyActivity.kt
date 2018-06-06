@@ -20,10 +20,9 @@ class CompanyActivity : AppCompatActivity(), CompanyContract.View {
         const val EXTRA_ID_COMPANY = "EXTRA_ID_COMPANY"
 
         fun newIntent(context: Context, idCompany: Long): Intent {
-            val intent = Intent(context, CompanyActivity::class.java)
-            intent.putExtra(EXTRA_ID_COMPANY, idCompany)
-
-            return intent
+            return Intent(context, CompanyActivity::class.java).apply {
+                putExtra(EXTRA_ID_COMPANY, idCompany)
+            }
         }
     }
 

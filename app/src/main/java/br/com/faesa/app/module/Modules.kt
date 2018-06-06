@@ -18,7 +18,7 @@ import org.koin.dsl.module.applicationContext
  * Created by wiliam on 5/23/18.
  */
 val mockModule = applicationContext {
-    bean { CareerPresenter() as CareerContract.Presenter }
+    bean { CareerPresenter(repository = get()) as CareerContract.Presenter }
     bean { ListCareerPresenter(repository = get()) as ListCareerContract.Presenter }
 
     bean { CompanyPresenter(repository = get()) as CompanyContract.Presenter }
