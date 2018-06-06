@@ -1,14 +1,13 @@
 package br.com.faesa.app.main.listcareer
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.career.CareerActivity
-import br.com.faesa.app.data.model.CareerSimpleModel
+import br.com.faesa.app.data.model.CareerSimple
 import br.com.faesa.app.main.epoxy.CareerController
 import kotlinx.android.synthetic.main.fragment_carrer.*
 import org.koin.android.ext.android.inject
@@ -43,7 +42,7 @@ class ListCareerFragment : BaseFragment(), ListCareerContract.View {
     override fun showLoadDialog() {}
     override fun dismissLoadDialog() {}
 
-    override fun loadList(list: List<CareerSimpleModel>) {
+    override fun loadList(list: List<CareerSimple>) {
         controller.setData(list)
     }
 

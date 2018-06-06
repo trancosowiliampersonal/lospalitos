@@ -1,18 +1,18 @@
 package br.com.faesa.app.main.epoxy
 
 import br.com.faesa.app.R
-import br.com.faesa.app.data.model.KnowledgeSimpleModel
+import br.com.faesa.app.data.model.KnowledgeSimple
 import com.airbnb.epoxy.TypedEpoxyController
 
 /**
  * @author wiliam
  * @date 6/6/18
  */
-class KnowledgeController: TypedEpoxyController<List<KnowledgeSimpleModel>>() {
+class KnowledgeController: TypedEpoxyController<List<KnowledgeSimple>>() {
 
-    var listener:((KnowledgeSimpleModel) -> Unit)? = null
+    var listener:((KnowledgeSimple) -> Unit)? = null
 
-    override fun buildModels(data: List<KnowledgeSimpleModel>?) {
+    override fun buildModels(data: List<KnowledgeSimple>?) {
         BannerModel_()
                 .id(0)
                 .img(R.drawable.banner_progress)

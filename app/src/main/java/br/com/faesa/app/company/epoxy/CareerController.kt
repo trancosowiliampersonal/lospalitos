@@ -1,17 +1,17 @@
 package br.com.faesa.app.company.epoxy
 
-import br.com.faesa.app.data.model.CareerSimpleModel
+import br.com.faesa.app.data.model.CareerSimple
 import com.airbnb.epoxy.TypedEpoxyController
 
 /**
  * @author wiliam
  * @date 5/31/18
  */
-class CareerController : TypedEpoxyController<List<CareerSimpleModel>>() {
+class CareerController : TypedEpoxyController<List<CareerSimple>>() {
 
-    var listener:((CareerSimpleModel) -> Unit)? = null
+    var listener:((CareerSimple) -> Unit)? = null
 
-    override fun buildModels(data: List<CareerSimpleModel>?) {
+    override fun buildModels(data: List<CareerSimple>?) {
 
         data?.forEach {
             CareerModel_()

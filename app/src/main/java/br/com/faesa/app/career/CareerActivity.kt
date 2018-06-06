@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.faesa.app.R
 import br.com.faesa.app.career.epoxy.KnowledgeController
-import br.com.faesa.app.data.model.CareerWithKnowledgesModel
-import br.com.faesa.app.domain.Career
+import br.com.faesa.app.data.model.CareerWithKnowledges
 import br.com.faesa.app.knowledge.KnowledgeActivity
-import br.com.faesa.app.main.listknowledge.ListKnowledgeFragment
 import kotlinx.android.synthetic.main.activity_career.*
 import org.koin.android.ext.android.inject
 
@@ -40,7 +38,7 @@ class CareerActivity : AppCompatActivity(), CareerContract.View {
     override fun showLoadDialog() {}
     override fun dismissLoadDialog() {}
 
-    override fun loadCareer(career: CareerWithKnowledgesModel?) {
+    override fun loadCareer(career: CareerWithKnowledges?) {
         carLblCareer.text = career?.name
         carTxtDescription.text = career?.description
 

@@ -1,13 +1,12 @@
 package br.com.faesa.app.main.listknowledge
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
-import br.com.faesa.app.data.model.KnowledgeSimpleModel
+import br.com.faesa.app.data.model.KnowledgeSimple
 import br.com.faesa.app.knowledge.KnowledgeActivity
 import br.com.faesa.app.main.epoxy.KnowledgeController
 import kotlinx.android.synthetic.main.fragment_knowledge.*
@@ -43,7 +42,7 @@ class ListKnowledgeFragment : BaseFragment(), ListKnowledgeContract.View {
     override fun showLoadDialog() {}
     override fun dismissLoadDialog() {}
 
-    override fun loadList(list: List<KnowledgeSimpleModel>) {
+    override fun loadList(list: List<KnowledgeSimple>) {
         controller.setData(list)
     }
 

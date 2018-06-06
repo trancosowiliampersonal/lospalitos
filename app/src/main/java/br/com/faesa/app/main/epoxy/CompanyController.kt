@@ -1,18 +1,18 @@
 package br.com.faesa.app.main.epoxy
 
 import br.com.faesa.app.R
-import br.com.faesa.app.data.model.CompanySimpleModel
+import br.com.faesa.app.data.model.CompanySimple
 import com.airbnb.epoxy.TypedEpoxyController
 
 /**
  * @author wiliam
  * @date 6/3/18
  */
-class CompanyController : TypedEpoxyController<List<CompanySimpleModel>>() {
+class CompanyController : TypedEpoxyController<List<CompanySimple>>() {
 
-    var listener:((CompanySimpleModel) -> Unit)? = null
+    var listener:((CompanySimple) -> Unit)? = null
 
-    override fun buildModels(data: List<CompanySimpleModel>?) {
+    override fun buildModels(data: List<CompanySimple>?) {
 
         BannerModel_()
                 .id(0)

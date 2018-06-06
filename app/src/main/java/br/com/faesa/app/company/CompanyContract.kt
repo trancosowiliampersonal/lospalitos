@@ -2,7 +2,7 @@ package br.com.faesa.app.company
 
 import br.com.faesa.app.BasePresenter
 import br.com.faesa.app.BaseView
-import br.com.faesa.app.data.model.CompanyWithCareersModel
+import br.com.faesa.app.data.model.CompanyWithCareers
 
 /**
  * Created by wiliam on 5/23/18.
@@ -15,6 +15,6 @@ interface CompanyContract {
     interface View : BaseView<Presenter> {
         fun showLoadDialog()
         fun dismissLoadDialog()
-        fun loadCompany(company: CompanyWithCareersModel)
+        fun loadCompany(company: CompanyWithCareers)
     }
 }

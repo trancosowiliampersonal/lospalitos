@@ -2,7 +2,7 @@ package br.com.faesa.app.main.listknowledge
 
 import br.com.faesa.app.BasePresenter
 import br.com.faesa.app.BaseView
-import br.com.faesa.app.data.model.KnowledgeSimpleModel
+import br.com.faesa.app.data.model.KnowledgeSimple
 
 /**
  * Created by wiliam on 5/23/18.
@@ -16,6 +16,6 @@ interface ListKnowledgeContract {
     interface View : BaseView<Presenter> {
         fun showLoadDialog()
         fun dismissLoadDialog()
-        fun loadList(list: List<KnowledgeSimpleModel>)
+        fun loadList(list: List<KnowledgeSimple>)
     }
 }

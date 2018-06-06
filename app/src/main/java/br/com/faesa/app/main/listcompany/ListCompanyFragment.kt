@@ -1,14 +1,13 @@
 package br.com.faesa.app.main.listcompany
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.faesa.app.BaseFragment
 import br.com.faesa.app.R
 import br.com.faesa.app.company.CompanyActivity
-import br.com.faesa.app.data.model.CompanySimpleModel
+import br.com.faesa.app.data.model.CompanySimple
 import br.com.faesa.app.main.epoxy.CompanyController
 import kotlinx.android.synthetic.main.fragment_company.*
 import org.koin.android.ext.android.inject
@@ -43,7 +42,7 @@ class ListCompanyFragment : BaseFragment(), ListCompanyContract.View {
     override fun showLoadDialog() {}
     override fun dismissLoadDialog() {}
 
-    override fun loadList(list: List<CompanySimpleModel>) {
+    override fun loadList(list: List<CompanySimple>) {
         controller.setData(list)
     }
 
